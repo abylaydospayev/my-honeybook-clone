@@ -1,3 +1,8 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Loading from './loading';
+
 import { Header } from '@/components/layout/Header';
 import { HeroSection } from '@/components/page_sections/HeroSection';
 import { BentoGrid } from '@/components/page_sections/BentoGrid';
@@ -8,22 +13,36 @@ import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
 import { ServicesSection } from '@/components/page_sections/ServicesSection';
 import { Footer } from '@/components/layout/Footer';
 
-
 export default function HomePage() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setLoading(false), 1500); // Simulated delay
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    // FIX: Re-added 'overflow-x-hidden' to the main page container
-    <div className="bg-light-gray overflow-x-hidden">
-      <Header />
-      <main>
-        <HeroSection />
-        <IntroSection /> 
-        <BentoGrid />
-        <ServicesSection />
-        <TeamSection />
-        <TestimonialSection />
-         <LogoCarousel />
-      </main>
-      <Footer />
-    </div>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div
+          className="bg-light-gray overflow-x-hidden animate-fade-in"
+          style={{ animation: 'fadeIn 0.5s ease-out forwards' }}
+        >
+          <Header />
+          <main>
+            <HeroSection />
+            <IntroSection />
+            <BentoGrid />
+            <ServicesSection />
+            <TeamSection />
+            <TestimonialSection />
+            <LogoCarousel />
+          </main>
+          <Footer />
+        </div>
+      )}
+    </>
   );
 }
