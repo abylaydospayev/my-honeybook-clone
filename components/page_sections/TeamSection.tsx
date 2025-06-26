@@ -1,56 +1,149 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useScroll, type Variants } from 'framer-motion';
 import Image from 'next/image';
-import { motion, type Variants } from 'framer-motion';
-import { Card } from '../ui/card';
-import { Button } from '../ui/button';
+import { teamMembers } from '@/lib/team-data';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+
+const cardHoverVariants: Variants = {
+  initial: { y: 0 },
+  hover: { y: -10, transition: { duration: 0.4, ease: 'easeInOut' } },
+};
+
+const imageVariants: Variants = {
+  initial: { opacity: 1 },
+  hover: { opacity: 0.15, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const detailsVariants: Variants = {
+  initial: { opacity: 0, y: 20 },
+  hover: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: 'easeOut', delay: 0.15 },
+  },
+};
+
+const bioVariants: Variants = {
+  initial: { opacity: 0, y: 30 },
+  hover: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut', delay: 0.25 },
+  },
+};
 
 export function TeamSection() {
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
-      }
-    },
+  const carouselRef = useRef<HTMLUListElement>(null);
+  const { scrollXProgress } = useScroll({ container: carouselRef });
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -320 : 320;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   return (
-    <motion.section 
-      className="p-4 md:p-8 bg-light-gray"
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      <Card id="team" className="lg:col-span-3 p-8 md:p-12 border-gray-200/80 bg-white">
-        <h2 className="text-3xl font-bold tracking-tight text-center mb-10 text-dark-gray">Meet The Leadership</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
+    <section id="team" className="py-24 sm:py-32 bg-dark-gray text-white">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* HEADER */}
+        <div className="flex justify-between items-end mb-12">
           <div>
-            <Image src="/image/hassan.png" width={128} height={128} alt="Hasan Warderem" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
-            <h3 className="text-xl font-semibold text-dark-gray">Hasan Warderem MA, PM</h3>
-            <p className="text-brand-blue font-medium">Founder &amp; Principal</p>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-white">
+              Powering Growth with Elite Talent
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-slate-300 max-w-2xl">
+              Our work thrives because of the minds behind it. These are the visionaries and builders who make the impossible happen — every day.
+            </p>
           </div>
-          <div>
-            <Image src="/image/laura.png" width={128} height={128} alt="Laura Southard" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
-            <h3 className="text-xl font-semibold text-dark-gray">Laura Southard</h3>
-            <p className="text-brand-blue font-medium">HR Lead</p>
-          </div>
-          <div>
-            <Image src="/image/abdiwali.png" width={128} height={128} alt="Abdiwali Mohamed" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
-            <h3 className="text-xl font-semibold text-dark-gray">Abdiwali Mohamed, CPA, MST</h3>
-            <p className="text-brand-blue font-medium">Financial, Management &amp; Compliance Lead</p>
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => scroll('left')}
+              aria-label="Previous"
+              className="p-2 rounded-full bg-slate-800/60 hover:bg-slate-700 transition-colors"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              aria-label="Next"
+              className="p-2 rounded-full bg-slate-800/60 hover:bg-slate-700 transition-colors"
+            >
+              <ArrowRight size={20} />
+            </button>
           </div>
         </div>
-        <div className="mt-12 flex justify-center">
-          <Button variant="secondary" size="lg" className="w-full max-w-xs">
-            Meet the Rest of Our Experts
-          </Button>
+
+        {/* TEAM CARDS */}
+        <ul
+          ref={carouselRef}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar"
+        >
+          {teamMembers.map((member) => (
+            <li key={member.id} className="flex-shrink-0 snap-start">
+              <motion.div
+                className="w-[300px] h-[420px]"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
+                <motion.div
+                  className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 p-5 flex flex-col justify-end group"
+                  variants={cardHoverVariants}
+                  initial="initial"
+                  whileHover="hover"
+                >
+                  {/* IMAGE */}
+                  <motion.div
+                    variants={imageVariants}
+                    className="absolute inset-0 transition-opacity duration-300"
+                  >
+                    <Image
+                      src={member.imageSrc}
+                      alt={member.name}
+                      fill
+                      sizes="300px"
+                      className="object-cover"
+                    />
+                  </motion.div>
+
+                  {/* BIO */}
+                  <motion.div
+                    variants={bioVariants}
+                    className="absolute inset-0 p-6 bg-black/50 backdrop-blur-sm flex items-center opacity-0 group-hover:opacity-100"
+                  >
+                    <p className="text-white text-sm leading-relaxed">{member.bio}</p>
+                  </motion.div>
+
+                  {/* NAME & TITLE */}
+                  <motion.div
+                    variants={detailsVariants}
+                    className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 z-10"
+                  >
+                    <div className="w-full h-20 bg-gradient-to-t from-black/80 to-transparent absolute bottom-0 left-0 rounded-b-2xl" />
+                    <div className="relative z-10">
+                      <h3 className="font-bold text-lg text-white">{member.name}</h3>
+                      <p className="text-sm text-gray-300">{member.title}</p>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </li>
+          ))}
+        </ul>
+
+        {/* PROGRESS BAR */}
+        <div className="w-full max-w-sm mx-auto mt-12 h-1.5 bg-slate-700 rounded-full">
+          <motion.div
+            className="h-1.5 bg-brand-blue rounded-full origin-left"
+            style={{ scaleX: scrollXProgress }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+          />
         </div>
-      </Card>
-    </motion.section>
+      </div>
+    </section>
   );
 }
