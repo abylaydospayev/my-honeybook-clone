@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -23,8 +22,6 @@ export function Header() {
   }, []);
 
   const showSolidHeader = isScrolled || isMenuOpen;
-  
-  // This variable now correctly controls the text color for the desktop links
   const linkClasses = showSolidHeader ? 'text-dark-gray' : 'text-white';
 
   return (
@@ -40,10 +37,9 @@ export function Header() {
               height={48}
               className="h-10 w-auto" 
             />
-<<<<<<< abylay
           </Link>
 
-          {/* --- DESKTOP NAVIGATION -- FIX APPLIED HERE --- */}
+          {/* Desktop Mega Menu Navigation */}
           <NavigationMenu.Root className="hidden lg:flex justify-center">
             <NavigationMenu.List className="flex items-center space-x-2">
               {navItems.map((item) => (
@@ -83,7 +79,6 @@ export function Header() {
           </NavigationMenu.Root>
           
           <div className="hidden lg:flex items-center space-x-2">
-             {/* The button's appearance is also updated */}
              <Button className={!showSolidHeader ? 'bg-white text-dark-gray hover:bg-gray-200' : ''}>Get started</Button>
           </div>
 
@@ -92,22 +87,6 @@ export function Header() {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-=======
-          </a>
-
-          <nav
-            className={`hidden md:flex items-center space-x-8 text-sm font-semibold transition-colors ${
-              isScrolled ? 'text-dark-gray' : 'text-white'
-            }`}
-          >
-            <a href="#about-us" className="hover:text-brand-blue">About Us</a>
-            <a href="#careers" className="hover:text-brand-blue">Careers</a>
-            <a href="#team" className="hover:text-brand-blue">Team Experts</a>
-            <a href="#services" className="hover:text-brand-blue">Services</a>
-          </nav>
-
-          <Button>Get In Touch</Button>
->>>>>>> main
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -140,7 +119,7 @@ export function Header() {
                 </div>
               ))}
               <hr className="my-2" />
-              <div className="px-4 py-2 space-y-2">
+              <div className="px-4 py-2">
                  <Button className="w-full">Get started</Button>
               </div>
             </nav>
