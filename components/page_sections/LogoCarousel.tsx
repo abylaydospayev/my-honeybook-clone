@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 const logos = [
   { src: '/logos/housing.png', alt: 'Seattle Housing Authority', width: 240, height: 80 },
