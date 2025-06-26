@@ -1,4 +1,5 @@
 import { BarChart, Briefcase, Users, Globe, Building, Award } from 'lucide-react'; // Added new icons
+import Link from 'next/link';
 
 export const navItems = [
   {
@@ -34,7 +35,7 @@ export const navItems = [
   },
   {
     title: "About Us",
-    href: "#about-us",
+    href: "/about",
     description: "Learn more about our company.",
   },
   // --- NEW ITEM ADDED HERE ---
