@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css"; // <-- ✅ CHECK: Ensure this line is here
+//import { Great_Vibes } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+//const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
