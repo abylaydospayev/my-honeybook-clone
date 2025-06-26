@@ -4,7 +4,6 @@ import { Inter, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-export const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" }); // ✅ still exportable like this
 
 export const metadata: Metadata = {
   title: "Create Next App",
