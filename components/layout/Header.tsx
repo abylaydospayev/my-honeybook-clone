@@ -40,6 +40,7 @@ export function Header() {
               height={48}
               className="h-10 w-auto" 
             />
+<<<<<<< abylay
           </Link>
 
           {/* --- DESKTOP NAVIGATION -- FIX APPLIED HERE --- */}
@@ -91,6 +92,22 @@ export function Header() {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
+=======
+          </a>
+
+          <nav
+            className={`hidden md:flex items-center space-x-8 text-sm font-semibold transition-colors ${
+              isScrolled ? 'text-dark-gray' : 'text-white'
+            }`}
+          >
+            <a href="#about-us" className="hover:text-brand-blue">About Us</a>
+            <a href="#careers" className="hover:text-brand-blue">Careers</a>
+            <a href="#team" className="hover:text-brand-blue">Team Experts</a>
+            <a href="#services" className="hover:text-brand-blue">Services</a>
+          </nav>
+
+          <Button>Get In Touch</Button>
+>>>>>>> main
         </div>
 
         {/* Mobile Menu Overlay */}
