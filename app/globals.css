@@ -26,7 +26,7 @@ html, body {
 }
 
 .animate-infinite-scroll {
-  animation: infinite-scroll 110s linear infinite;
+  animation: infinite-scroll 30s linear infinite;
 }
 
 
@@ -40,4 +40,25 @@ html, body {
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out both;
 }

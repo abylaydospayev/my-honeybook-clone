@@ -60,11 +60,23 @@ export function TeamSection() {
                       {member.bio}
                     </p>
                     <div className="mt-4 flex items-center gap-4">
-                      {member.socials?.map((social, index) => (
-                        <a key={index} href={social.href} className="text-gray-400 hover:text-dark-gray">
-                          <social.icon size={20} />
-                        </a>
-                      ))}
+                      <div className="mt-4 flex flex-row items-center gap-4">
+  {member.socials?.map((social, index) => {
+    const Icon = social.icon;
+    return (
+      <a
+        key={index}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-dark-gray"
+      >
+        <Icon size={20} />
+      </a>
+    );
+  })}
+</div>
+
                     </div>
                   </div>
                 </motion.div>
