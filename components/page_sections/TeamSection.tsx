@@ -1,56 +1,94 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useScroll } from 'framer-motion';
 import Image from 'next/image';
-import { motion, type Variants } from 'framer-motion';
-import { Card } from '../ui/card';
-import { Button } from '../ui/button';
+import { teamMembers } from '@/lib/team-data';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export function TeamSection() {
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
-      }
-    },
+  const carouselRef = useRef<HTMLUListElement>(null);
+  const { scrollXProgress } = useScroll({ container: carouselRef });
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.children[0].clientWidth;
+      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   return (
-    <motion.section 
-      className="p-4 md:p-8 bg-light-gray"
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      <Card id="team" className="lg:col-span-3 p-8 md:p-12 border-gray-200/80 bg-white">
-        <h2 className="text-3xl font-bold tracking-tight text-center mb-10 text-dark-gray">Meet The Leadership</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
-          <div>
-            <Image src="/image/hassan.png" width={128} height={128} alt="Hasan Warderem" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
-            <h3 className="text-xl font-semibold text-dark-gray">Hasan Warderem MA, PM</h3>
-            <p className="text-brand-blue font-medium">Founder &amp; Principal</p>
-          </div>
-          <div>
-            <Image src="/image/laura.png" width={128} height={128} alt="Laura Southard" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
-            <h3 className="text-xl font-semibold text-dark-gray">Laura Southard</h3>
-            <p className="text-brand-blue font-medium">HR Lead</p>
-          </div>
-          <div>
-            <Image src="/image/abdiwali.png" width={128} height={128} alt="Abdiwali Mohamed" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
-            <h3 className="text-xl font-semibold text-dark-gray">Abdiwali Mohamed, CPA, MST</h3>
-            <p className="text-brand-blue font-medium">Financial, Management &amp; Compliance Lead</p>
-          </div>
+    <section id="team" className="py-24 sm:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-dark-gray">
+            Meet Our Team of Experts
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            We provide all the advantage that can simplify your financial and banking support without any further issues.
+          </p>
         </div>
-        <div className="mt-12 flex justify-center">
-          <Button variant="secondary" size="lg" className="w-full max-w-xs">
-            Meet the Rest of Our Experts
-          </Button>
+
+        {/* Draggable Carousel */}
+        <div className="mt-16">
+          <ul 
+            ref={carouselRef}
+            className="flex gap-8 overflow-x-auto cursor-grab active:cursor-grabbing no-scrollbar snap-x snap-mandatory"
+          >
+            {teamMembers.map((member) => (
+              <li key={member.id} className="flex-shrink-0 snap-center w-[calc(100%-2rem)] sm:w-auto">
+                <motion.div
+                  className="w-full sm:w-[340px] rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
+                  {/* Image goes in the top part of the card */}
+                  <div className="relative w-full h-80 bg-gray-200">
+                    <Image
+                      src={member.imageSrc}
+                      alt={`Portrait of ${member.name}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  {/* Text goes in the bottom part of the card */}
+                  <div className="p-6 bg-white">
+                    <h3 className="font-bold text-xl text-dark-gray leading-tight">{member.name}</h3>
+                    <p className="text-sm text-brand-blue font-semibold">{member.title}</p>
+                    <p className="mt-4 text-sm text-gray-600 h-24">
+                      {member.bio}
+                    </p>
+                    <div className="mt-4 flex items-center gap-4">
+                      {member.socials?.map((social, index) => (
+                        <a key={index} href={social.href} className="text-gray-400 hover:text-dark-gray">
+                          <social.icon size={20} />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </li>
+            ))}
+          </ul>
         </div>
-      </Card>
-    </motion.section>
+        
+        {/* Navigation Controls */}
+        <div className="flex justify-between items-center max-w-sm mx-auto mt-12">
+            <button onClick={() => scroll('left')} aria-label="Previous" className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                <ArrowLeft size={20} className="text-gray-500" />
+            </button>
+            <div className="w-full mx-4 h-1.5 bg-gray-200 rounded-full">
+                <motion.div 
+                    className="h-1.5 bg-brand-blue rounded-full"
+                    style={{ scaleX: scrollXProgress, transformOrigin: 'left' }}
+                />
+            </div>
+            <button onClick={() => scroll('right')} aria-label="Next" className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                <ArrowRight size={20} className="text-gray-500" />
+            </button>
+        </div>
+      </div>
+    </section>
   );
 }

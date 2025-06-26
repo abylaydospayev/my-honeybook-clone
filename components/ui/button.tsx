@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
-
-// Make sure you have the 'lib/utils.ts' file we created earlier
+import './button_54.css'; // make sure this includes .btn-54 styles
+import './button_85.css';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
@@ -12,6 +12,9 @@ const buttonVariants = cva(
       variant: {
         primary: 'bg-dark-gray text-white hover:bg-dark-gray/90',
         secondary: 'bg-brand-blue text-white hover:bg-brand-blue/90',
+        deep3d: 'btn-54', // Tailwind won’t apply here, CSS handles this
+        deepBorder: 'btn-85'
+
       },
       size: {
         default: 'px-5 py-2.5',
@@ -25,9 +28,6 @@ const buttonVariants = cva(
   }
 );
 
-// --- THIS IS THE FIX ---
-// This interface tells TypeScript that our Button can accept all standard
-// button attributes PLUS our custom 'variant' and 'size' props.
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
@@ -35,17 +35,37 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
+    const baseClass = cn(buttonVariants({ variant, size, className }));
+
+    if (variant === 'deep3d') {
+      return (
+        <Comp className={cn('btn-54', baseClass)} ref={ref} {...props}>
+          <span className="shadow"></span>
+          <span className="depth"></span>
+          <span className="content">{children}</span>
+        </Comp>
+      );
+    }
+
+    if (variant === 'deepBorder') {
+      return (
+        <Comp className={cn('btn-85', baseClass)} ref={ref} {...props}>
+          <span>{children}</span>
+        </Comp>
+      );
+    }
+
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <Comp className={baseClass} ref={ref} {...props}>
+        {children}
+      </Comp>
     );
   }
 );
+
+
 Button.displayName = 'Button';
 
 export { Button, buttonVariants };

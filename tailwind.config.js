@@ -11,6 +11,7 @@ module.exports = {
         'brand-blue': '#3860BE',
         'dark-gray': '#142127',
         'light-gray': '#f0f2f5',
+        'brand-dark-blue': '#0B1E3D'
       },
       animation: {
         'infinite-scroll': 'scroll 30s linear infinite',
@@ -23,5 +24,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+    plugins: [
+    require('tailwind-scrollbar-hide') 
+  ],
 };

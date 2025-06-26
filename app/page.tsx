@@ -5,7 +5,9 @@ import { TeamSection } from '@/components/page_sections/TeamSection';
 import { IntroSection } from '@/components/page_sections/IntroSection';
 import { TestimonialSection } from '@/components/page_sections/TestimonialSection';
 import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
+import { ServicesSection } from '@/components/page_sections/ServicesSection';
 import { Footer } from '@/components/layout/Footer';
+
 
 export default function HomePage() {
   return (
@@ -16,9 +18,10 @@ export default function HomePage() {
         <HeroSection />
         <IntroSection /> 
         <BentoGrid />
+        <ServicesSection />
         <TeamSection />
-        <LogoCarousel />
         <TestimonialSection />
+         <LogoCarousel />
       </main>
       <Footer />
     </div>

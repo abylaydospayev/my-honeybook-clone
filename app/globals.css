@@ -1,4 +1,7 @@
 
+@import '../components/ui/button_54.css';
+
+
 html, body {
   overflow-x: hidden;
   position: relative;
@@ -26,3 +29,15 @@ html, body {
   animation: infinite-scroll 110s linear infinite;
 }
 
+
+
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For other browsers like Firefox, and to be thorough */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
