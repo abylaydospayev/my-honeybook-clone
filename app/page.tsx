@@ -14,10 +14,10 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <LogoCarousel />
         <IntroSection /> 
         <BentoGrid />
         <TeamSection />
+        <LogoCarousel />
         <TestimonialSection />
       </main>
       <Footer />

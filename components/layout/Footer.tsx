@@ -1,15 +1,14 @@
 import Image from 'next/image';
-// 1. Import both Facebook and Linkedin icons
 import { MapPin, Linkedin, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-dark-gray text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
           
           {/* Column 1: Logo */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex justify-center md:justify-start">
             <a href="#" aria-label="Bulle Consulting Home">
               <Image
                 src="/logos/bulleconsulting-white.png"
@@ -38,42 +37,49 @@ export function Footer() {
 
           {/* Column 3: Contact Info */}
           <div className="lg:col-span-1">
-             <h3 className="font-bold mb-4">OUR LOCATIONS</h3>
-             <ul className="space-y-4">
-               <li className="flex items-center gap-3">
-                 <MapPin size={16} className="text-brand-blue" />
-                 <span className="text-sm text-gray-300">Seattle: +1-206-359-1603</span>
-               </li>
-               <li className="flex items-center gap-3">
-                 <MapPin size={16} className="text-brand-blue" />
-                 <span className="text-sm text-gray-300">New York: +1-646-494-0892</span>
-               </li>
-             </ul>
-             <a href="mailto:projects@bulleconsulting.com" className="block mt-6 text-brand-blue hover:underline">
-                projects@bulleconsulting.com
-             </a>
+            <h3 className="font-bold mb-4">OUR LOCATIONS</h3>
+            <ul className="space-y-4">
+              <li className="flex justify-center md:justify-start items-center gap-3">
+                <MapPin size={16} className="text-brand-blue" />
+                <span className="text-sm text-gray-300">Seattle: +1-206-359-1603</span>
+              </li>
+              <li className="flex justify-center md:justify-start items-center gap-3">
+                <MapPin size={16} className="text-brand-blue" />
+                <span className="text-sm text-gray-300">New York: +1-646-494-0892</span>
+              </li>
+            </ul>
+            <a href="mailto:projects@bulleconsulting.com" className="block mt-6 text-brand-blue hover:underline">
+              projects@bulleconsulting.com
+            </a>
           </div>
 
-          {/* Column 4: Social Media -- UPDATED */}
+          {/* Column 4: Social Media */}
           <div className="lg:col-span-1">
             <h3 className="font-bold mb-4">CONNECT</h3>
-            {/* Flex container to hold icons side-by-side */}
-            <div className="flex items-center gap-4">
-              <a href="https://www.linkedin.com/company/bulle-consulting/" aria-label="LinkedIn" className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors">
+            <div className="flex justify-center md:justify-start items-center gap-4">
+              <a
+                href="https://www.linkedin.com/company/bulle-consulting/"
+                aria-label="LinkedIn"
+                className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
+              >
                 <Linkedin size={20} className="text-white" />
               </a>
-              <a href="https://www.facebook.com/bulleconsulting/" aria-label="Facebook" className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors">
+              <a
+                href="https://www.facebook.com/bulleconsulting/"
+                aria-label="Facebook"
+                className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
+              >
                 <Facebook size={20} className="text-white" />
               </a>
             </div>
           </div>
-
         </div>
 
+        {/* Bottom text */}
         <div className="border-t border-gray-700/50 mt-12 pt-8 text-center">
-            <p className="text-sm text-gray-500">
-                © 2025 Bulle Consulting. All rights reserved.
-            </p>
+          <p className="text-sm text-gray-500">
+            © 2025 Bulle Consulting. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
