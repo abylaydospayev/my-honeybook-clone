@@ -1,3 +1,13 @@
+
+html, body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,3 +25,4 @@
 .animate-infinite-scroll {
   animation: infinite-scroll 110s linear infinite;
 }
+

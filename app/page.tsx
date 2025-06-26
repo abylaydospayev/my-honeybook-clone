@@ -1,19 +1,25 @@
 import { Header } from '@/components/layout/Header';
 import { HeroSection } from '@/components/page_sections/HeroSection';
 import { BentoGrid } from '@/components/page_sections/BentoGrid';
-import { Footer } from '@/components/layout/Footer';
-import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
+import { TeamSection } from '@/components/page_sections/TeamSection';
+import { IntroSection } from '@/components/page_sections/IntroSection';
 import { TestimonialSection } from '@/components/page_sections/TestimonialSection';
+import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
+import { Footer } from '@/components/layout/Footer';
 
 export default function HomePage() {
   return (
-    // Use the custom light-gray for the main page background
-    <div className="bg-light-gray">
+    // FIX: Re-added 'overflow-x-hidden' to the main page container
+    <div className="bg-light-gray overflow-x-hidden">
       <Header />
-      <HeroSection />
-      <TestimonialSection />
-      <LogoCarousel />
-      <BentoGrid />
+      <main>
+        <HeroSection />
+        <IntroSection /> 
+        <BentoGrid />
+        <TeamSection />
+        <LogoCarousel />
+        <TestimonialSection />
+      </main>
       <Footer />
     </div>
   );
