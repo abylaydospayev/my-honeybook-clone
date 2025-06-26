@@ -23,32 +23,27 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-3">
+          <a href="#" aria-label="Bulle Consulting Home">
             <Image
               src={isScrolled ? '/logos/bulleconsulting-black.png' : '/logos/bulleconsulting-white.png'}
               alt="Bulle Consulting Logo"
-              width={100}
-              height={100}
-              className="h w-auto transition-all duration-300"
+              width={180} // A good size for a larger logo
+              height={48}
+              // --- THE FIX IS HERE ---
+              // Removed the 'h-10' class to allow the component props to work.
+              className="w-auto transition-all duration-300" 
             />
-            <span
-              className={`font-bold text-xl tracking-wide transition-colors ${
-                isScrolled ? 'text-gray-900' : 'text-white'
-              }`}
-            >
-            </span>
-          </div>
+          </a>
 
           <nav
             className={`hidden md:flex items-center space-x-8 text-sm font-semibold transition-colors ${
-              isScrolled ? 'text-gray-600' : 'text-white'
+              isScrolled ? 'text-dark-gray' : 'text-white'
             }`}
           >
-            <a href="#team" className="hover:text-blue-600">Home</a>
-            <a href="#team" className="hover:text-blue-600">Careers</a>
-            <a href="#team" className="hover:text-blue-600">About us</a>
-            <a href="#team" className="hover:text-blue-600">Team</a>
-            <a href="#contact" className="hover:text-blue-600">Contact</a>
+            <a href="#about-us" className="hover:text-brand-blue">About Us</a>
+            <a href="#careers" className="hover:text-brand-blue">Careers</a>
+            <a href="#team" className="hover:text-brand-blue">Team</a>
+            <a href="#services" className="hover:text-brand-blue">Services</a>
           </nav>
 
           <Button>Get In Touch</Button>

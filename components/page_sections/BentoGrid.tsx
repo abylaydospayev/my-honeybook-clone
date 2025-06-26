@@ -34,8 +34,9 @@ export function BentoGrid() {
           <video src="/video/Video_Ready_Upward_Arrow.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-8 text-white">
-            <h3 className="font-semibold text-lg opacity-80">Projects Completed</h3>
-            <p className="text-5xl font-extrabold mt-1">700+</p>
+            <h3 className="font-semibold text-lg opacity-80"></h3>
+            <p className="text-3xl font-extrabold mt-1">Scaling With</p>
+            <p className="text-3xl font-extrabold mt-1">a Purpose</p>
           </div>
         </motion.div>
 
@@ -49,8 +50,9 @@ export function BentoGrid() {
           <video src="/video/Bar_Chart_Video_Generated.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-8 text-white">
-            <h3 className="font-semibold text-lg opacity-80">Finance Advices</h3>
-            <p className="text-5xl font-extrabold mt-1">900</p>
+            <h2 className="font-semibold text-lg opacity-80"></h2>
+            <p className="text-3xl font-extrabold mt-1">Relationship</p>
+            <p className="text-3xl font-extrabold mt-1">Driven</p>
           </div>
         </motion.div>
         
@@ -68,6 +70,8 @@ export function BentoGrid() {
           </Card>
         </motion.div>
         
+
+        
         <motion.div 
           variants={cardVariants}
           initial="hidden"
@@ -77,22 +81,31 @@ export function BentoGrid() {
         >
           <Card id="team" className="p-8 md:p-12 border-gray-200/80">
             <h2 className="text-3xl font-bold tracking-tight text-center mb-10">Meet The Leadership</h2>
+            
+            {/* This grid should only contain the team members */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
               <div>
-                <Image src="/image/hassan.png" width={128} height={128} alt="Alexandre Bulle" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
+                <Image src="/image/hassan.png" width={128} height={128} alt="Hasan Warderem" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
                 <h3 className="text-xl font-semibold">Hasan Warderem MA, PM</h3>
-                <p className="text-blue-600 font-medium">Founder & Principal</p>
+                <p className="text-blue-600 font-medium">Founder &amp; Principal</p>
               </div>
               <div>
-                <Image src="/image/laura.png" width={128} height={128} alt="Jane Doe" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
+                <Image src="/image/laura.png" width={128} height={128} alt="Laura Southard" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
                 <h3 className="text-xl font-semibold">Laura Southard</h3>
                 <p className="text-blue-600 font-medium">HR Lead</p>
               </div>
               <div>
-                <Image src="/image/abdiwali.png" width={128} height={128} alt="John Smith" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
+                <Image src="/image/abdiwali.png" width={128} height={128} alt="Abdiwali Mohamed" className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
                 <h3 className="text-xl font-semibold">Abdiwali Mohamed, CPA, MST</h3>
-                <p className="text-blue-600 font-medium">Financial, Management & Compliance Lead</p>
+                <p className="text-blue-600 font-medium">Financial, Management &amp; Compliance Lead</p>
               </div>
+            </div> {/* <-- The grid container now closes here */}
+
+            {/* The button is moved outside the grid and wrapped for centering */}
+            <div className="mt-12 flex justify-center">
+              <Button variant="secondary" size="lg" className="w-full max-w-xs">
+                Meet the Rest of Our Experts
+              </Button>
             </div>
           </Card>
         </motion.div>

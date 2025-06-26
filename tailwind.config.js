@@ -1,11 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",     
-    "./components/**/*.{js,ts,jsx,tsx}" 
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
+      // Added a 'colors' object to define your custom brand palette
+      colors: {
+        'brand-blue': '#3860BE',
+        'dark-gray': '#142127',
+        'light-gray': '#f0f2f5',
+      },
       animation: {
         'infinite-scroll': 'scroll 30s linear infinite',
       },
