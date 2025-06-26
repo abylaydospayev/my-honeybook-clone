@@ -16,6 +16,7 @@ export function Footer() {
                 width={200}
                 height={55}
                 className="w-40 h-auto"
+                loading="lazy"
               />
             </a>
           </div>

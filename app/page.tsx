@@ -20,8 +20,8 @@ export default function HomePage() {
         <BentoGrid />
         <ServicesSection />
         <TeamSection />
-         <LogoCarousel />
         <TestimonialSection />
+         <LogoCarousel />
       </main>
       <Footer />
     </div>

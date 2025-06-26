@@ -35,7 +35,8 @@ export function Header() {
               alt="Bulle Consulting Logo"
               width={180}
               height={48}
-              className="h-10 w-auto" 
+              className="h-10 w-auto"
+              priority // Ensures above-the-fold logo loads fast
             />
           </Link>
 
