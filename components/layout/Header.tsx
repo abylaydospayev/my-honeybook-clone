@@ -42,7 +42,7 @@ export function Header() {
           >
             <a href="#about-us" className="hover:text-brand-blue">About Us</a>
             <a href="#careers" className="hover:text-brand-blue">Careers</a>
-            <a href="#team" className="hover:text-brand-blue">Team</a>
+            <a href="#team" className="hover:text-brand-blue">Team Experts</a>
             <a href="#services" className="hover:text-brand-blue">Services</a>
           </nav>
 
