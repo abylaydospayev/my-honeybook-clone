@@ -1,10 +1,8 @@
 'use client';
-import { greatVibes } from '@/lib/fonts'; 
 
 export function Signature() {
   return (
     <div
-      className={greatVibes.className}
       style={{
         fontSize: '2.5rem',
         color: '#222',
