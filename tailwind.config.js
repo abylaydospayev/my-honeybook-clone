@@ -6,14 +6,14 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Added a 'colors' object to define your custom brand palette
       colors: {
         'brand-blue': '#3860BE',
         'dark-gray': '#142127',
         'light-gray': '#f0f2f5',
+        'brand-dark-blue': '#0B1E3D'
       },
       animation: {
-        'infinite-scroll': 'scroll 30s linear infinite',
+        scroll: 'scroll 40s linear infinite', // fixed name to match animate-scroll
       },
       keyframes: {
         scroll: {
@@ -23,5 +23,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+  ],
 };
