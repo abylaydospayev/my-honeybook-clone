@@ -41,11 +41,11 @@ export default function HomePage() {
           <Header />
           <main>
             <HeroSection />
-            <LogoCarousel />
             <IntroSection />
             <ServicesSection />
             <TeamSection />
             <TestimonialSection />
+            <LogoCarousel />
           </main>
           <Footer />
         </div>
