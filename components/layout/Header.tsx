@@ -28,7 +28,6 @@ export function Header() {
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${showSolidHeader ? 'bg-white/90 shadow-sm backdrop-blur-lg' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center py-4">
-          
           <Link href="/" aria-label="Bulle Consulting Home">
             <Image
               src={showSolidHeader ? '/logos/bulleconsulting-black.png' : '/logos/bulleconsulting-white.png'}
@@ -40,7 +39,6 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop Mega Menu Navigation */}
           <NavigationMenu.Root className="hidden lg:flex justify-center">
             <NavigationMenu.List className="flex items-center space-x-2">
               {navItems.map((item) => (
@@ -63,7 +61,6 @@ export function Header() {
                                 ) : (
                                   <NavigationMenu.Link asChild key={child.title}>
                                     <a href={child.href} className="flex items-start p-3 rounded-lg hover:bg-light-gray">
-                                      {/* FIX: Only render the icon if it exists */}
                                       {child.icon && <child.icon className="h-6 w-6 text-brand-blue flex-shrink-0 mt-1" />}
                                       <div className="ml-4">
                                         <p className="text-sm font-semibold text-dark-gray">{child.title}</p>
@@ -101,7 +98,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4">
             <nav className="flex flex-col space-y-1 px-4">

@@ -10,6 +10,7 @@ import { IntroSection } from '@/components/page_sections/IntroSection';
 import { ServicesSection } from '@/components/page_sections/ServicesSection';
 import { TeamSection } from '@/components/page_sections/TeamSection';
 import { TestimonialSection } from '@/components/page_sections/TestimonialSection';
+import { ContactSection } from '@/components/page_sections/ContactSection';
 import { Footer } from '@/components/layout/Footer';
 
 export default function HomePage() {
@@ -46,6 +47,7 @@ export default function HomePage() {
             <TeamSection />
             <TestimonialSection />
             <LogoCarousel />
+            <ContactSection/>
           </main>
           <Footer />
         </div>

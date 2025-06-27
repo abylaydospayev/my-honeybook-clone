@@ -1,26 +1,36 @@
 import { BarChart, Briefcase, Users, Globe, LayoutGrid, type LucideIcon } from 'lucide-react';
 
-// We'll add a 'type' to our child items to differentiate links from headings
-export type ChildNavItem = {
-  title: string;
-  type: 'link' | 'heading';
-  description?: string;
-  href?: string;
-  icon?: LucideIcon;
-};
-
-export type NavItem = {
+// Define the shape for a link item in the dropdown
+type LinkItem = {
+  type: 'link';
   title: string;
   href: string;
   description: string;
+  icon: LucideIcon;
+};
+
+// Define the shape for a heading item in the dropdown
+type HeadingItem = {
+  type: 'heading';
+  title: string;
+};
+
+// A ChildNavItem can be either a LinkItem or a HeadingItem
+export type ChildNavItem = LinkItem | HeadingItem;
+
+// The main navigation item type
+export type NavItem = {
+  title: string;
+  href?: string; // href is now optional for dropdown-only items
+  description?: string;
   children?: ChildNavItem[];
 };
 
+// Apply the NavItem[] type to our constant
 export const navItems: NavItem[] = [
   {
     title: "Services",
-    href: "/services",
-    description: "Explore our core disciplines.",
+    href: "/services", // This ensures the main button is a clickable link
     children: [
       // Column 1
       {
@@ -72,16 +82,17 @@ export const navItems: NavItem[] = [
   {
     title: "About Us",
     href: "/about",
-    description: "Learn more about our company.",
   },
   {
     title: "Our Team",
     href: "/#team",
-    description: "Meet our experts.",
   },
   {
     title: "Careers",
     href: "/careers",
-    description: "See our open positions.",
   },
+  {
+    title: "Contact",
+    href: "/contactus",
+  }
 ];
