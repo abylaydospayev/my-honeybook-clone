@@ -1,104 +1,87 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { teamMembers } from '@/lib/team-data';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export function TeamSection() {
-  const carouselRef = useRef<HTMLUListElement>(null);
-  const { scrollXProgress } = useScroll({ container: carouselRef });
+  // State to track the ID of the currently open/active member
+  // We'll default to showing the first member's bio
+  const [activeMemberId, setActiveMemberId] = useState<number | null>(teamMembers[0].id);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.children[0].clientWidth;
-      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+  const toggleMember = (id: number) => {
+    // If the clicked member is already active, close it. Otherwise, open it.
+    setActiveMemberId(activeMemberId === id ? null : id);
   };
 
   return (
     <section id="team" className="py-24 sm:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-gray">
             Meet Our Team of Experts
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            We provide all the advantage that can simplify your financial and banking support without any further issues.
+            Our team is composed of seasoned operators, strategists, and former founders. We have been in your shoes.
           </p>
         </div>
 
-        {/* Draggable Carousel */}
-        <div className="mt-16">
-          <ul 
-            ref={carouselRef}
-            className="flex gap-8 overflow-x-auto cursor-grab active:cursor-grabbing no-scrollbar snap-x snap-mandatory"
-          >
-            {teamMembers.map((member) => (
-              <li key={member.id} className="flex-shrink-0 snap-center w-[calc(100%-2rem)] sm:w-auto">
-                <motion.div
-                  className="w-full sm:w-[340px] rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
-                  {/* Image goes in the top part of the card */}
-                  <div className="relative w-full h-80 bg-gray-200">
-                    <Image
-                      src={member.imageSrc}
-                      alt={`Portrait of ${member.name}`}
-                      fill
-                      className="object-cover"
-                    />
+        {/* The Accordion List - now used for all screen sizes */}
+        <div className="mt-16 border-t border-gray-200">
+          {teamMembers.map((member) => (
+            <div key={member.id} className="border-b border-gray-200">
+              <button 
+                onClick={() => toggleMember(member.id)}
+                className="w-full flex justify-between items-center text-left py-6 transition-colors hover:bg-gray-50"
+                aria-expanded={activeMemberId === member.id}
+              >
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={56}
+                    height={56}
+                    className="w-14 h-14 rounded-full object-cover"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold text-dark-gray">{member.name}</h3>
+                    <p className="text-sm text-brand-blue">{member.title}</p>
                   </div>
-                  {/* Text goes in the bottom part of the card */}
-                  <div className="p-6 bg-white">
-                    <h3 className="font-bold text-xl text-dark-gray leading-tight">{member.name}</h3>
-                    <p className="text-sm text-brand-blue font-semibold">{member.title}</p>
-                    <p className="mt-4 text-sm text-gray-600 h-24">
-                      {member.bio}
-                    </p>
-                    <div className="mt-4 flex items-center gap-4">
-                      <div className="mt-4 flex flex-row items-center gap-4">
-  {member.socials?.map((social, index) => {
-    const Icon = social.icon;
-    return (
-      <a
-        key={index}
-        href={social.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-dark-gray"
-      >
-        <Icon size={20} />
-      </a>
-    );
-  })}
-</div>
-
-                    </div>
-                  </div>
-                </motion.div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        
-        {/* Navigation Controls */}
-        <div className="flex justify-between items-center max-w-sm mx-auto mt-12">
-            <button onClick={() => scroll('left')} aria-label="Previous" className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <ArrowLeft size={20} className="text-gray-500" />
-            </button>
-            <div className="w-full mx-4 h-1.5 bg-gray-200 rounded-full">
-                <motion.div 
-                    className="h-1.5 bg-brand-blue rounded-full"
-                    style={{ scaleX: scrollXProgress, transformOrigin: 'left' }}
+                </div>
+                <ChevronDown 
+                  size={24} 
+                  className={`text-gray-400 transition-transform duration-300 ${activeMemberId === member.id ? 'rotate-180' : ''}`} 
                 />
+              </button>
+              
+              {/* The expandable bio section with animation */}
+              <AnimatePresence>
+                {activeMemberId === member.id && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pb-6 pr-12 pl-20">
+                      <p className="text-gray-700 leading-relaxed">{member.bio}</p>
+                      <div className="mt-4 flex items-center gap-4">
+                        {member.socials?.map((social, index) => (
+                          <a key={index} href={social.href} className="text-gray-400 hover:text-dark-gray">
+                            <social.icon size={20} />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <button onClick={() => scroll('right')} aria-label="Next" className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <ArrowRight size={20} className="text-gray-500" />
-            </button>
+          ))}
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@ export function Header() {
               width={180}
               height={48}
               className="h-10 w-auto"
-              priority // Ensures above-the-fold logo loads fast
+              priority 
             />
           </Link>
 
@@ -51,18 +51,29 @@ export function Header() {
                         <span>{item.title}</span>
                         <ChevronDownIcon />
                       </NavigationMenu.Trigger>
-                      <NavigationMenu.Content className="absolute top-full mt-2 w-auto bg-white rounded-lg shadow-lg p-4">
-                        <div className="grid grid-cols-2 gap-x-8 gap-y-4" style={{width: '32rem'}}>
-                           {item.children.map((child) => (
-                            <NavigationMenu.Link asChild key={child.title}>
-                              <a href={child.href} className="flex items-start p-3 rounded-lg hover:bg-light-gray">
-                                <child.icon className="h-6 w-6 text-brand-blue flex-shrink-0 mt-1" />
-                                <div className="ml-4">
-                                  <p className="text-sm font-semibold text-dark-gray">{child.title}</p>
-                                  <p className="text-sm text-gray-500">{child.description}</p>
-                                </div>
-                              </a>
-                            </NavigationMenu.Link>
+                      <NavigationMenu.Content className="absolute top-full mt-2 w-auto bg-white rounded-lg shadow-lg p-6">
+                        <div className="flex gap-x-12">
+                          {[item.children.slice(0, 4), item.children.slice(4)].map((columnItems, colIndex) => (
+                            <div key={colIndex} className="flex flex-col space-y-2 w-64">
+                              {columnItems.map((child) => (
+                                child.type === 'heading' ? (
+                                  <h4 key={child.title} className="font-bold text-sm text-gray-400 uppercase tracking-wider pt-2 pb-1 px-3">
+                                    {child.title}
+                                  </h4>
+                                ) : (
+                                  <NavigationMenu.Link asChild key={child.title}>
+                                    <a href={child.href} className="flex items-start p-3 rounded-lg hover:bg-light-gray">
+                                      {/* FIX: Only render the icon if it exists */}
+                                      {child.icon && <child.icon className="h-6 w-6 text-brand-blue flex-shrink-0 mt-1" />}
+                                      <div className="ml-4">
+                                        <p className="text-sm font-semibold text-dark-gray">{child.title}</p>
+                                        {child.description && <p className="text-sm text-gray-500">{child.description}</p>}
+                                      </div>
+                                    </a>
+                                  </NavigationMenu.Link>
+                                )
+                              ))}
+                            </div>
                           ))}
                         </div>
                       </NavigationMenu.Content>
@@ -104,7 +115,7 @@ export function Header() {
                       </button>
                       {isServicesOpen && (
                         <div className="pl-4 mt-1 space-y-1 border-l-2 border-gray-100">
-                          {item.children.map((child) => (
+                          {item.children.filter(child => child.type === 'link').map((child) => (
                              <a key={child.title} href={child.href} onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-light-gray">
                                {child.title}
                              </a>
