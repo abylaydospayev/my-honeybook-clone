@@ -23,11 +23,10 @@ export default function HomePage() {
 
       <main>
         <HeroSection />
-        <LogoCarousel />
         <ServicesSection />
         <TeamSection />
         <TestimonialSection />
-        <ContactSection />
+        <LogoCarousel />
       </main>
       
       <Footer />
