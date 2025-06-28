@@ -9,7 +9,6 @@ import { IntroSection } from '@/components/page_sections/IntroSection';
 import { ServicesSection } from '@/components/page_sections/ServicesSection';
 import { TeamSection } from '@/components/page_sections/TeamSection';
 import { TestimonialSection } from '@/components/page_sections/TestimonialSection';
-import { ContactSection } from '@/components/page_sections/ContactSection';
 import { ContactModal } from '@/components/ui/ContactModal'; // Import the new modal
 
 export default function HomePage() {
@@ -32,7 +31,6 @@ export default function HomePage() {
         <ServicesSection />
         <TeamSection />
         <TestimonialSection />
-        <ContactSection />
       </main>
       
       <Footer />
