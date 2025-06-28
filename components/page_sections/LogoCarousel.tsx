@@ -26,10 +26,10 @@ export function LogoCarousel() {
   return (
     <section className="py-16 bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-center font-semibold text-sm text-gray-600 tracking-widest uppercase mb-12">
+        <h2 className="text-center font-semibold text-sm text-gray-600 tracking-widest uppercase mb-0">
           Trusted By Our Partners
         </h2>
-
+        <div className="w-full border-t border-gray-200 my-8" />
         <div
           className="w-full overflow-hidden group"
           style={{

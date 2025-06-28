@@ -23,57 +23,59 @@ export function Footer() {
 
           {/* Column 2: Addresses */}
           <div className="lg:col-span-1">
-            <h3 className="font-bold mb-4">Headquarters</h3>
+            <h3 className="font-bold mb-4">HEADQUARTERS</h3>
+            <li className="flex justify-center md:justify-start items-center gap-3">
+                <span>Seattle</span>
+              </li>
             <p className="text-sm text-gray-400 leading-relaxed">
               3815 S Othello St.<br />
               Suite 100-179<br />
               Seattle, WA 98118
             </p>
-            <h3 className="font-bold mt-6 mb-4">New York</h3>
+            <li className="flex justify-center md:justify-start items-center gap-3">
+                {/* <Phone size={18} className="text-brand-blue" /> */}
+                <span>+1-206-359-1603</span>
+              </li>
+            <h3 className="font-bold mt-6 mb-0">New York</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
               255 West 43rd Street<br />
               New York, NY 10036
             </p>
+            <li className="flex justify-center md:justify-start items-center gap-3">
+                {/* <Phone size={18} className="text-brand-blue" /> */}
+                <span>+1-646-494-0892</span>
+              </li>
           </div>
 
           {/* Column 3: Email */}
-          <div className="lg:col-span-1">
-            <h3 className="font-bold mb-4">EMAIL</h3>
-            <a href="mailto:projects@bulleconsulting.com" className="text-brand-blue hover:underline text-sm">
-              projects@bulleconsulting.com
-            </a>
-          </div>
+          <div className="lg:col-span-1 flex flex-col space-y-6">
+              <div>
+                <h3 className="font-bold mb-4">EMAIL</h3>
+                <a href="mailto:projects@bulleconsulting.com" className="text-brand-blue hover:underline text-sm">
+                  projects@bulleconsulting.com
+                </a>
+              </div>z
 
-          {/* Column 4: Social Media & Phones */}
-          <div className="lg:col-span-1">
-            <h3 className="font-bold mb-4">CONNECT</h3>
-            <div className="flex justify-center md:justify-start items-center gap-4 mb-6">
-              <a
-                href="https://www.linkedin.com/company/bulle-consulting/"
-                aria-label="LinkedIn"
-                className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
-              >
-                <Linkedin size={20} className="text-white" />
-              </a>
-              <a
-                href="https://www.facebook.com/bulleconsulting/"
-                aria-label="Facebook"
-                className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
-              >
-                <Facebook size={20} className="text-white" />
-              </a>
+            {/* Column 4: Social Media & Phones */}
+            <div>
+              <h3 className="font-bold mb-4">CONNECT</h3>
+              <div className="flex justify-center md:justify-start items-center gap-4 mb-6">
+                <a
+                  href="https://www.linkedin.com/company/bulle-consulting/"
+                  aria-label="LinkedIn"
+                  className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
+                >
+                  <Linkedin size={20} className="text-white" />
+                </a>
+                <a
+                  href="https://www.facebook.com/bulleconsulting/"
+                  aria-label="Facebook"
+                  className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
+                >
+                  <Facebook size={20} className="text-white" />
+                </a>
+              </div>
             </div>
-
-            <ul className="space-y-4 text-lg font-semibold">
-              <li className="flex justify-center md:justify-start items-center gap-3">
-                <Phone size={18} className="text-brand-blue" />
-                <span>+1-206-359-1603</span>
-              </li>
-              <li className="flex justify-center md:justify-start items-center gap-3">
-                <Phone size={18} className="text-brand-blue" />
-                <span>+1-646-494-0892</span>
-              </li>
-            </ul>
           </div>
         </div>
 

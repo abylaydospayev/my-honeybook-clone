@@ -88,7 +88,7 @@ export function Header() {
           </NavigationMenu.Root>
           
           <div className="hidden lg:flex items-center space-x-2">
-             <Button className={!showSolidHeader ? 'bg-white text-dark-gray hover:bg-gray-200' : ''}>Get started</Button>
+             <Button className={!showSolidHeader ? 'bg-white text-dark-gray hover:bg-gray-200' : ''}>Let's Talk!</Button>
           </div>
 
           <div className="lg:hidden">
@@ -128,7 +128,7 @@ export function Header() {
               ))}
               <hr className="my-2" />
               <div className="px-4 py-2">
-                 <Button className="w-full">Get started</Button>
+                 <Button className="w-full">Let's Talk!</Button>
               </div>
             </nav>
           </div>

@@ -81,11 +81,11 @@ export function ServicesMain() {
             >
               We help businesses and community organizations grow sustainably by offering data-driven strategy, stakeholder engagement, and operational clarity. At Bulle Consulting, we don’t just provide services—we build futures.
             </motion.p>
-            <motion.div variants={itemVariants} className="mt-8">
+            {/* <motion.div variants={itemVariants} className="mt-8">
               <Button size="lg" variant="secondary">
                 Get Started
               </Button>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

@@ -30,7 +30,6 @@ export function ServicesSection() {
             
             {/* Left Column: Main Headline & Description */}
             <div className="flex flex-col justify-center">
-              <p className="text-base font-semibold text-brand-blue">Our Services</p>
               <h2 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
                 A Framework for Growth and Scalability
               </h2>
