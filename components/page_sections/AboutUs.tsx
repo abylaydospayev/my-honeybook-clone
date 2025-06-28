@@ -3,9 +3,7 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import Image from 'next/image';
-import { CounterSection } from '@/components/page_sections/CounterSection';
 import { Categories } from '@/components/page_sections/Categories';
-import { Signature } from '@/components/page_sections/Signature';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -64,7 +62,7 @@ export function AboutUs() {
         </motion.section>
 
         {/* Counters and Categories */}
-        <CounterSection />
+        {/* <CounterSection /> */}
         <Categories />
 
         {/* CTA Banner Section */}
@@ -97,7 +95,6 @@ export function AboutUs() {
             </blockquote>
             <div>
               <p className="text-lg font-medium">Hassan Wardere – CEO</p>
-              <Signature />
             </div>
           </div>
         </section>

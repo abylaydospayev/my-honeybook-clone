@@ -81,40 +81,17 @@ export function ServicesMain() {
             >
               We help businesses and community organizations grow sustainably by offering data-driven strategy, stakeholder engagement, and operational clarity. At Bulle Consulting, we don’t just provide services—we build futures.
             </motion.p>
-            <motion.div variants={itemVariants} className="mt-8">
+            {/* <motion.div variants={itemVariants} className="mt-8">
               <Button size="lg" variant="secondary">
                 Get Started
               </Button>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>
 
       {/* Stats Section Below Hero */}
-      <div className="bg-dark-gray text-white py-16">
-        <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-3 gap-12 text-center">
-                {/* Stat 1 */}
-                <div className="flex flex-col items-center">
-                    <Award className="w-10 h-10 text-brand-blue mb-4" />
-                    <p className="text-4xl font-bold">30+</p>
-                    <p className="text-gray-400 mt-2">Years of Combined Experience</p>
-                </div>
-                {/* Stat 2 */}
-                <div className="flex flex-col items-center">
-                    <Briefcase className="w-10 h-10 text-brand-blue mb-4" />
-                    <p className="text-4xl font-bold">7</p>
-                    <p className="text-gray-400 mt-2">Core Service Offerings</p>
-                </div>
-                {/* Stat 3 */}
-                <div className="flex flex-col items-center">
-                    <Users className="w-10 h-10 text-brand-blue mb-4" />
-                    <p className="text-4xl font-bold">150+</p>
-                    <p className="text-gray-400 mt-2">Clients Empowered</p>
-                </div>
-            </div>
-        </div>
-      </div>
+      
     </section>
   );
 }

@@ -1,89 +1,53 @@
 'use client';
 
+import { motion, type Variants } from 'framer-motion';
+import { Card } from '../ui/card';
 import Image from 'next/image';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { teamMembers } from '@/lib/team-data';
-import { ChevronDown } from 'lucide-react';
+import { Button } from '../ui/button';
 
 export function TeamSection() {
-  // State to track the ID of the currently open/active member
-  // We'll default to showing the first member's bio
-  const [activeMemberId, setActiveMemberId] = useState<number | null>(teamMembers[0].id);
-
-  const toggleMember = (id: number) => {
-    // If the clicked member is already active, close it. Otherwise, open it.
-    setActiveMemberId(activeMemberId === id ? null : id);
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut" 
+      }
+    },
   };
 
   return (
-    <section id="team" className="py-24 sm:py-32 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-gray">
-            Meet Our Team of Experts
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Our team is composed of seasoned operators, strategists, and former founders. We have been in your shoes.
-          </p>
-        </div>
-
-        {/* The Accordion List - now used for all screen sizes */}
-        <div className="mt-16 border-t border-gray-200">
-          {teamMembers.map((member) => (
-            <div key={member.id} className="border-b border-gray-200">
-              <button 
-                onClick={() => toggleMember(member.id)}
-                className="w-full flex justify-between items-center text-left py-6 transition-colors hover:bg-gray-50"
-                aria-expanded={activeMemberId === member.id}
-              >
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={member.imageSrc}
-                    alt={member.name}
-                    width={56}
-                    height={56}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
-                  <div>
-                    <h3 className="text-lg font-semibold text-dark-gray">{member.name}</h3>
-                    <p className="text-sm text-brand-blue">{member.title}</p>
-                  </div>
-                </div>
-                <ChevronDown 
-                  size={24} 
-                  className={`text-gray-400 transition-transform duration-300 ${activeMemberId === member.id ? 'rotate-180' : ''}`} 
-                />
-              </button>
-              
-              {/* The expandable bio section with animation */}
-              <AnimatePresence>
-                {activeMemberId === member.id && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pb-6 pr-12 pl-20">
-                      <p className="text-gray-700 leading-relaxed">{member.bio}</p>
-                      <div className="mt-4 flex items-center gap-4">
-                        {member.socials?.map((social, index) => (
-                          <a key={index} href={social.href} className="text-gray-400 hover:text-dark-gray">
-                            <social.icon size={20} />
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
+    <motion.section 
+      className="p-4 md:p-8 bg-light-gray"
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      {/* This container ensures consistent width and padding */}
+      <div className="max-w-7xl mx-auto px-6">
+        <Card id="team" className="p-8 md:p-12 border-gray-200/80 bg-white">
+          <h2 className="text-3xl font-bold tracking-tight text-center mb-10 text-dark-gray">Meet The Leadership</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
+            {/* Team member content... */}
+            {teamMembers.map((member) => (
+              <div key={member.id}>
+                <Image src={member.imageSrc} width={128} height={128} alt={member.name} className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
+                <h3 className="text-xl font-semibold text-dark-gray">{member.name}</h3>
+                <p className="text-brand-blue font-medium">{member.title}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 flex justify-center">
+            <Button variant="secondary" size="lg" className="w-full max-w-xs">
+              Meet the Rest of Our Experts
+            </Button>
+          </div>
+        </Card>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -91,8 +91,8 @@ export const navItems: NavItem[] = [
     title: "Careers",
     href: "/careers",
   },
-  {
-    title: "Contact",
-    href: "/contactus",
-  }
+  // {
+  //   title: "Contact",
+  //   href: "/contactus",
+  // }
 ];
