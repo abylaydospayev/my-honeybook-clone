@@ -32,4 +32,5 @@ export const teamMembers = [
       { href: "https://linkedin.com/in/abdiwali", icon: FaLinkedin },
     ],
   },
+  
 ];
