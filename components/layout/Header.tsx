@@ -35,7 +35,7 @@ export function Header() {
               width={180}
               height={48}
               className="h-10 w-auto"
-              priority 
+              priority
             />
           </Link>
 
@@ -45,9 +45,11 @@ export function Header() {
                 <NavigationMenu.Item key={item.title}>
                   {item.children ? (
                     <>
-                      <NavigationMenu.Trigger className={`group inline-flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none ${linkClasses} ${showSolidHeader ? 'hover:bg-gray-100' : 'hover:bg-white/10'}`}>
-                        <span>{item.title}</span>
-                        <ChevronDownIcon />
+                      <NavigationMenu.Trigger asChild>
+                        <a href={item.href} className={`group inline-flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none ${linkClasses} ${showSolidHeader ? 'hover:bg-gray-100' : 'hover:bg-white/10'}`}>
+                          <span>{item.title}</span>
+                          <ChevronDownIcon />
+                        </a>
                       </NavigationMenu.Trigger>
                       <NavigationMenu.Content className="absolute top-full mt-2 w-auto bg-white rounded-lg shadow-lg p-6">
                         <div className="flex gap-x-12">
@@ -88,7 +90,7 @@ export function Header() {
           </NavigationMenu.Root>
           
           <div className="hidden lg:flex items-center space-x-2">
-             <Button className={!showSolidHeader ? 'bg-white text-dark-gray hover:bg-gray-200' : ''}>Let's Talk!</Button>
+             <Button className={!showSolidHeader ? 'bg-white text-dark-gray hover:bg-gray-200' : ''}>Get started</Button>
           </div>
 
           <div className="lg:hidden">
@@ -128,7 +130,7 @@ export function Header() {
               ))}
               <hr className="my-2" />
               <div className="px-4 py-2">
-                 <Button className="w-full">Let's Talk!</Button>
+                 <Button className="w-full">Get started</Button>
               </div>
             </nav>
           </div>
