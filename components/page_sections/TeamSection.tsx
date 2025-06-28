@@ -1,106 +1,53 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
+import { Card } from '../ui/card';
 import Image from 'next/image';
 import { teamMembers } from '@/lib/team-data';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Button } from '../ui/button';
 
 export function TeamSection() {
-  const carouselRef = useRef<HTMLUListElement>(null);
-  const { scrollXProgress } = useScroll({ container: carouselRef });
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.children[0].clientWidth;
-      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut" 
+      }
+    },
   };
 
   return (
-    <section id="team" className="py-24 sm:py-32 bg-white">
+    <motion.section 
+      className="p-4 md:p-8 bg-light-gray"
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      {/* This container ensures consistent width and padding */}
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-gray">
-            Meet Our Team of Experts
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            We provide all the advantage that can simplify your financial and banking support without any further issues.
-          </p>
-        </div>
-
-        {/* Draggable Carousel */}
-        <div className="mt-16">
-          <ul 
-            ref={carouselRef}
-            className="flex gap-8 overflow-x-auto cursor-grab active:cursor-grabbing no-scrollbar snap-x snap-mandatory"
-          >
+        <Card id="team" className="p-8 md:p-12 border-gray-200/80 bg-white">
+          <h2 className="text-3xl font-bold tracking-tight text-center mb-10 text-dark-gray">Meet The Leadership</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
+            {/* Team member content... */}
             {teamMembers.map((member) => (
-              <li key={member.id} className="flex-shrink-0 snap-center w-[calc(100%-2rem)] sm:w-auto">
-                <motion.div
-                  className="w-full sm:w-[340px] rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
-                  {/* Image goes in the top part of the card */}
-                  <div className="relative w-full h-80 bg-gray-200">
-                    <Image
-                      src={member.imageSrc}
-                      alt={`Portrait of ${member.name}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  {/* Text goes in the bottom part of the card */}
-                  <div className="p-6 bg-white">
-                    <h3 className="font-bold text-xl text-dark-gray leading-tight">{member.name}</h3>
-                    <p className="text-sm text-brand-blue font-semibold">{member.title}</p>
-                    <p className="mt-4 text-sm text-gray-600 h-24">
-                      {member.bio}
-                    </p>
-                    <div className="mt-4 flex items-center gap-4">
-                      <div className="mt-4 flex flex-row items-center gap-4">
-  {member.socials?.map((social, index) => {
-    const Icon = social.icon;
-    return (
-      <a
-        key={index}
-        href={social.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-dark-gray"
-      >
-        <Icon size={20} />
-      </a>
-    );
-  })}
-</div>
-
-                    </div>
-                  </div>
-                </motion.div>
-              </li>
+              <div key={member.id}>
+                <Image src={member.imageSrc} width={128} height={128} alt={member.name} className="w-32 h-32 mx-auto rounded-full object-cover bg-gray-200 mb-4" />
+                <h3 className="text-xl font-semibold text-dark-gray">{member.name}</h3>
+                <p className="text-brand-blue font-medium">{member.title}</p>
+              </div>
             ))}
-          </ul>
-        </div>
-        
-        {/* Navigation Controls */}
-        <div className="flex justify-between items-center max-w-sm mx-auto mt-12">
-            <button onClick={() => scroll('left')} aria-label="Previous" className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <ArrowLeft size={20} className="text-gray-500" />
-            </button>
-            <div className="w-full mx-4 h-1.5 bg-gray-200 rounded-full">
-                <motion.div 
-                    className="h-1.5 bg-brand-blue rounded-full"
-                    style={{ scaleX: scrollXProgress, transformOrigin: 'left' }}
-                />
-            </div>
-            <button onClick={() => scroll('right')} aria-label="Next" className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <ArrowRight size={20} className="text-gray-500" />
-            </button>
-        </div>
+          </div>
+          <div className="mt-12 flex justify-center">
+            <Button variant="secondary" size="lg" className="w-full max-w-xs">
+              Meet the Rest of Our Experts
+            </Button>
+          </div>
+        </Card>
       </div>
-    </section>
+    </motion.section>
   );
 }

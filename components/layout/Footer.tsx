@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { MapPin, Linkedin, Facebook } from 'lucide-react';
+import {Phone, MapPin, Linkedin, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -36,28 +36,18 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Column 3: Contact Info */}
+          {/* Column 3: Email */}
           <div className="lg:col-span-1">
-            <h3 className="font-bold mb-4">OUR LOCATIONS</h3>
-            <ul className="space-y-4">
-              <li className="flex justify-center md:justify-start items-center gap-3">
-                <MapPin size={16} className="text-brand-blue" />
-                <span className="text-sm text-gray-300">Seattle: +1-206-359-1603</span>
-              </li>
-              <li className="flex justify-center md:justify-start items-center gap-3">
-                <MapPin size={16} className="text-brand-blue" />
-                <span className="text-sm text-gray-300">New York: +1-646-494-0892</span>
-              </li>
-            </ul>
-            <a href="mailto:projects@bulleconsulting.com" className="block mt-6 text-brand-blue hover:underline">
+            <h3 className="font-bold mb-4">EMAIL</h3>
+            <a href="mailto:projects@bulleconsulting.com" className="text-brand-blue hover:underline text-sm">
               projects@bulleconsulting.com
             </a>
           </div>
 
-          {/* Column 4: Social Media */}
+          {/* Column 4: Social Media & Phones */}
           <div className="lg:col-span-1">
             <h3 className="font-bold mb-4">CONNECT</h3>
-            <div className="flex justify-center md:justify-start items-center gap-4">
+            <div className="flex justify-center md:justify-start items-center gap-4 mb-6">
               <a
                 href="https://www.linkedin.com/company/bulle-consulting/"
                 aria-label="LinkedIn"
@@ -73,6 +63,17 @@ export function Footer() {
                 <Facebook size={20} className="text-white" />
               </a>
             </div>
+
+            <ul className="space-y-4 text-lg font-semibold">
+              <li className="flex justify-center md:justify-start items-center gap-3">
+                <Phone size={18} className="text-brand-blue" />
+                <span>+1-206-359-1603</span>
+              </li>
+              <li className="flex justify-center md:justify-start items-center gap-3">
+                <Phone size={18} className="text-brand-blue" />
+                <span>+1-646-494-0892</span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -86,3 +87,4 @@ export function Footer() {
     </footer>
   );
 }
+
