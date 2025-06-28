@@ -64,7 +64,7 @@ export function AboutUs() {
         </motion.section>
 
         {/* Counters and Categories */}
-        <CounterSection />
+        {/* <CounterSection /> */}
         <Categories />
 
         {/* CTA Banner Section */}

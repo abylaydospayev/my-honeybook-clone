@@ -43,21 +43,32 @@ export function Categories() {
   ];
 
   return (
-    <section className="py-16 bg-white" id="service-grid">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold">We deliver top-notch consulting services designed to help you succeed.</h2>
+    <section className="py-20 bg-[#0a2540] text-white" id="service-grid">
+  <div className="container mx-auto px-4 max-w-6xl">
+    <div className="text-center mb-14">
+      <h2 className="text-4xl font-bold leading-tight mb-4">
+        Our Consulting Strengths
+      </h2>
+      <p className="text-white/80 text-lg max-w-2xl mx-auto">
+        We deliver top-notch services that empower organizations to thrive.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      {services.map(({ icon, title, description }, i) => (
+        <div
+          key={i}
+          className="bg-[#102c52] rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center"
+        >
+          <div className="mb-4">{icon}</div>
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-white/70 text-sm">{description}</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-          {services.map(({ icon, title, description }, i) => (
-            <div key={i} className="text-center animate-fadeInUp">
-              <div className="mb-4">{icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{title}</h3>
-              <p className="text-gray-700">{description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
   );
 }
