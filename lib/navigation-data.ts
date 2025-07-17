@@ -85,7 +85,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "Our Team",
-    href: "/#team",
+    href: "/ourteam",
   },
   {
     title: "Careers",

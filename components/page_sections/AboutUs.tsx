@@ -31,7 +31,7 @@ export function AboutUs() {
           variants={fadeInUp}
         >
           <div className="md:w-1/2 space-y-6 max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 relative w-fit after:absolute after:-bottom-1 after:left-0 after:h-1 after:w-full after:bg-blue-500 after:rounded-md after:content-['']">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 relative w-fit after:absolute after:-bottom-1 after:left-0 after:h-1 after:w-full after:bg-brand-blue after:rounded-md after:content-['']">
               About Us
             </h2>
             <p className="text-md md:text-lg leading-relaxed text-gray-700">

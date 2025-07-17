@@ -33,7 +33,7 @@ export function ServicesSection() {
               <h2 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
                 A Framework for Growth and Scalability
               </h2>
-              <p className="mt-6 text-lg text-gray-400">
+              <p className="mt-6 text-lg text-gray-300">
                 Our services are designed to strengthen your internal infrastructures, create authentic connections, and provide the strategic support needed to scale with purpose.
               </p>
             </div>
@@ -48,7 +48,7 @@ export function ServicesSection() {
                     <Users className="w-6 h-6 text-brand-blue" />
                     <h3 className="font-semibold text-lg">Capacity Building Support</h3>
                   </div>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-300">
                     Strengthening internal infrastructures that help CBOs and SMEs scale effectively, using equity-driven strategies to ensure all stakeholders thrive.
                   </p>
                 </div>
@@ -64,7 +64,7 @@ export function ServicesSection() {
                     <Briefcase className="w-6 h-6 text-brand-blue" />
                     <h3 className="font-semibold text-lg">Assisting Small Businesses</h3>
                   </div>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-300">
                     We use a participatory and pragmatic approach to strengthen small businesses, improve delivery, and enhance growth trajectories.
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export function ServicesSection() {
                     <BarChart className="w-6 h-6 text-brand-blue" />
                     <h3 className="font-semibold text-lg">RoR Framework Implementation</h3>
                   </div>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-300">
                     Our authentic Return on Relationship process goes beyond talk, focusing on proactively engaging clients and communities to build deep connections.
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export function ServicesSection() {
                     <Globe className="w-6 h-6 text-brand-blue" />
                     <h3 className="font-semibold text-lg">International Trade Initiatives</h3>
                   </div>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-300">
                     Our partners include trade associations, universities, and financial institutions, helping clients create new relationships and collaborative opportunities.
                   </p>
                 </div>

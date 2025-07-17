@@ -11,7 +11,9 @@ export function HeroSection() {
             />
             <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>
             <div className="relative z-10 px-6 animate-fade-in-up">
-                <p className="text-base font-semibold text-blue-300 tracking-wider">STRATEGY. EXECUTION. RESULTS.</p>
+            <p className="text-base font-semibold tracking-wider" style={{ color: '#20BAD1' }}>
+            STRATEGY. EXECUTION. RESULTS.
+            </p>
                 <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-white">
                     FIND THAT MISSING PIECE
                 </h1>

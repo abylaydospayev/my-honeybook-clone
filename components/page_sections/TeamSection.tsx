@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import { Card } from '../ui/card';
 import Image from 'next/image';
@@ -42,9 +42,11 @@ export function TeamSection() {
             ))}
           </div>
           <div className="mt-12 flex justify-center">
+              <Link href="/ourteam">
             <Button variant="secondary" size="lg" className="w-full max-w-xs">
-              Meet the Rest of Our Experts
+              Meet Our Entire Team of Experts
             </Button>
+            </Link>
           </div>
         </Card>
       </div>

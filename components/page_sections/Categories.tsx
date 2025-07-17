@@ -5,37 +5,37 @@ import { FaHandshake, FaTools, FaUsersCog, FaPeopleArrows, FaSyncAlt, FaSmile } 
 export function Categories() {
   const services = [
     {
-      icon: <FaHandshake size={48} className="mx-auto text-blue-600" />,
+      icon: <FaHandshake size={48} className="mx-auto text-brand-blue" />,
       title: "Proactive Service",
       description:
         "Delivering a proactive, knowledgeable, and reliable service at first point of contact.",
     },
     {
-      icon: <FaTools size={48} className="mx-auto text-blue-600" />,
+      icon: <FaTools size={48} className="mx-auto text-brand-blue" />,
       title: "Problem Solving",
       description:
         "Offering a variety of problem-solving methods that suit your needs.",
     },
     {
-      icon: <FaUsersCog size={48} className="mx-auto text-blue-600" />,
+      icon: <FaUsersCog size={48} className="mx-auto text-brand-blue" />,
       title: "Consultant Support",
       description:
         "Supporting and developing consultants to ensure excellent service quality.",
     },
     {
-      icon: <FaPeopleArrows size={48} className="mx-auto text-blue-600" />,
+      icon: <FaPeopleArrows size={48} className="mx-auto text-brand-blue" />,
       title: "Collaboration",
       description:
         "Collaborating with stakeholders to understand client needs.",
     },
     {
-      icon: <FaSyncAlt size={48} className="mx-auto text-blue-600" />,
+      icon: <FaSyncAlt size={48} className="mx-auto text-brand-blue" />,
       title: "Continuous Improvement",
       description:
         "Continually refining services and internal processes.",
     },
     {
-      icon: <FaSmile size={48} className="mx-auto text-blue-600" />,
+      icon: <FaSmile size={48} className="mx-auto text-brand-blue" />,
       title: "Client Satisfaction",
       description:
         "Taking action to maintain high client satisfaction levels.",

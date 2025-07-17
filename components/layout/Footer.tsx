@@ -54,7 +54,7 @@ export function Footer() {
                 <a href="mailto:projects@bulleconsulting.com" className="text-brand-blue hover:underline text-sm">
                   projects@bulleconsulting.com
                 </a>
-              </div>z
+              </div>
 
             {/* Column 4: Social Media & Phones */}
             <div>
