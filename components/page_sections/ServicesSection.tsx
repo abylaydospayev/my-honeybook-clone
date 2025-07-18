@@ -95,7 +95,7 @@ function VideoPlayer({ src }: { src: string }) {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-white dark:bg-black">
+    <section id="services" className="py-24 bg--gray dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-dark-gray dark:text-white">
