@@ -9,8 +9,9 @@ const serviceData = [
     title: 'Capacity Building Support',
     description: 'Strengthening internal infrastructures that help CBOs and SMEs scale effectively, using equity-driven strategies to ensure all stakeholders thrive.',
     videoSrc: '/video/growth_curve.mp4',
-    bgColor: 'bg-[#201c2c]',
-    textColor: 'text-white',
+    posterSrc: '/video/posters/growth_curve_poster.jpg',
+    bgColor: 'bg-[#201c2c]', // UPDATED: Now a consistent dark color
+    textColor: 'text-white', // UPDATED: Text is now white
     isFeatured: false,
     href: '/services/capacity-building',
   },
@@ -18,7 +19,8 @@ const serviceData = [
     title: 'Assisting Small Businesses',
     description: 'We use a participatory and pragmatic approach to strengthen small businesses, improve delivery, and enhance growth trajectories.',
     videoSrc: '/video/business_plan.mp4',
-    bgColor: 'bg-[#3266eb]',
+    posterSrc: '/video/posters/business_plan_poster.jpg',
+    bgColor: 'bg-[#3266eb]', // This remains the featured blue color
     textColor: 'text-white',
     isFeatured: true,
     href: '/services/small-business',
@@ -27,7 +29,8 @@ const serviceData = [
     title: 'RoR Framework Implementation',
     description: 'Our authentic Return on Relationship process goes beyond talk, focusing on proactively engaging clients and communities to build deep connections.',
     videoSrc: '/video/business_deal.mp4',
-    bgColor: 'bg-[#201c2c]',
+    posterSrc: '/video/posters/business_deal_poster.jpg',
+    bgColor: 'bg-[#201c2c]', // This was already a consistent dark color
     textColor: 'text-white',
     isFeatured: false,
     href: '/services/ror-framework',
@@ -36,7 +39,8 @@ const serviceData = [
     title: 'International Trade Initiatives',
     description: 'Our partners include trade associations, universities, and financial institutions, helping clients create new relationships and collaborative opportunities.',
     videoSrc: '/video/international_trade.mp4', 
-    bgColor: 'bg-[#3b6aeb]',
+    posterSrc: '/video/posters/international_trade_poster.jpg',
+    bgColor: 'bg-[#3b6aeb]', // This remains a distinct blue color
     textColor: 'text-white',
     isFeatured: false,
     href: '/services/international-trade',
@@ -44,7 +48,7 @@ const serviceData = [
 ];
 
 // Helper component to handle the play-on-scroll logic
-function VideoPlayer({ src }: { src: string }) {
+function VideoPlayer({ src, poster }: { src: string, poster: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -71,7 +75,7 @@ function VideoPlayer({ src }: { src: string }) {
         observer.unobserve(containerElement);
       }
     };
-  }, [src]); // Added src to dependency array to handle dynamic sources
+  }, [src]);
 
   return (
     <div ref={containerRef} className="relative h-64 w-full mt-auto">
@@ -79,6 +83,8 @@ function VideoPlayer({ src }: { src: string }) {
         ref={videoRef}
         muted
         playsInline
+        preload="metadata"
+        poster={poster}
         aria-hidden="true"
         className="w-full h-full object-contain object-bottom p-4"
         key={src}
@@ -121,7 +127,7 @@ export function ServicesSection() {
                     </p>
                   </div>
 
-                  <VideoPlayer src={service.videoSrc} />
+                  <VideoPlayer src={service.videoSrc} poster={service.posterSrc} />
 
                 </Card>
               </Link>
