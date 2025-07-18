@@ -9,7 +9,7 @@ const serviceData = [
     title: 'Capacity Building Support',
     description: 'Strengthening internal infrastructures that help CBOs and SMEs scale effectively, using equity-driven strategies to ensure all stakeholders thrive.',
     videoSrc: '/video/growth_curve.mp4',
-    bgColor: 'bg-[#201c2c] dark:bg-gray-800',
+    bgColor: 'bg-[#201c2c]',
     textColor: 'text-white',
     isFeatured: false,
     href: '/services/capacity-building',
