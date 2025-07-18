@@ -66,7 +66,7 @@ export function AboutUs() {
         <Categories />
 
         {/* CTA Banner Section */}
-        <section className="bg-[#1bbcd3] text-white py-14 px-6 md:px-24 flex flex-col md:flex-row items-center justify-between gap-8 rounded-xl shadow-lg">
+        {/* <section className="bg-[#1bbcd3] text-white py-14 px-6 md:px-24 flex flex-col md:flex-row items-center justify-between gap-8 rounded-xl shadow-lg">
           <h3 className="text-2xl md:text-3xl font-bold text-center md:text-left">
             We’re Delivering the Best<br className="hidden md:block" /> Customer Experience
           </h3>
@@ -78,7 +78,7 @@ export function AboutUs() {
             DISCOVER MORE
           </a>
 
-        </section>
+        </section> */}
 
         {/* Quote Section */}
         <section

@@ -7,8 +7,6 @@ import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
 import { ContactModal } from '@/components/ui/ContactModal';
 import { Careers } from '@/components/page_sections/Careers';
 
-
-
 export default function CareersPage() {
    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
    return (
@@ -17,12 +15,10 @@ export default function CareersPage() {
          variant="transparent" 
          onContactClick={() => setIsContactModalOpen(true)} 
        />
- 
        <main>
          <Careers /> 
          <LogoCarousel/>
        </main>
- 
        <Footer />
              <ContactModal 
                isOpen={isContactModalOpen} 

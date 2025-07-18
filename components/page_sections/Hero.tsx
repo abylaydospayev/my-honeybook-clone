@@ -46,16 +46,16 @@ export function Hero() {
         </motion.p>
 
         {/* Call to Action Button */}
-        <motion.a
+        {/* <motion.a
           href="#about"
           className="relative z-10 mt-6 inline-block px-8 py-4 text-sm md:text-base font-semibold bg-white text-black rounded-md shadow-lg transition hover:bg-gray-200"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.6 }}
         >
           Discover More
-        </motion.a>
+        </motion.a> */}
       </div>
     </section>
   );

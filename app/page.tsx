@@ -8,8 +8,11 @@ import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
 import { ServicesSection } from '@/components/page_sections/ServicesSection';
 import { TeamSection } from '@/components/page_sections/TeamSection';
 import { TestimonialSection } from '@/components/page_sections/TestimonialSection';
-import { ContactSection } from '@/components/page_sections/ContactSection';
 import { ContactModal } from '@/components/ui/ContactModal';
+import { ScrollToTopButton } from '@/components/layout/ScrollToTopButton';
+import { AnimatedTestimonials } from '@/components/ui/AnimatedTestimonials';
+
+
 
 export default function HomePage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -17,7 +20,7 @@ export default function HomePage() {
   return (
     <div className="bg-light-gray overflow-x-hidden">
       <Header 
-        variant="transparent" 
+        variant="transparent"
         onContactClick={() => setIsContactModalOpen(true)} 
       />
 
@@ -25,10 +28,12 @@ export default function HomePage() {
         <HeroSection />
         <ServicesSection />
         <TeamSection />
-        <TestimonialSection />
+
+        <TestimonialSection/>
+        
         <LogoCarousel />
       </main>
-      
+        <ScrollToTopButton />
       <Footer />
 
       <ContactModal 

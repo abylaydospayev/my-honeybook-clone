@@ -8,6 +8,7 @@ import { ServicesMain } from '@/components/page_sections/ServicesMain';
 import { CategoriesCards } from '@/components/page_sections/CategoriesCards';
 import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
 import { ContactModal } from '@/components/ui/ContactModal'
+import { ScrollToTopButton } from '@/components/layout/ScrollToTopButton';
 
 
 
@@ -26,7 +27,11 @@ export default function ServicesPage() {
         <CategoriesCards/>
         <LogoCarousel />
       </main>
-
+        <ScrollToTopButton />
+      <ContactModal 
+              isOpen={isContactModalOpen} 
+              onClose={() => setIsContactModalOpen(false)} 
+            />
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {Phone, MapPin, Linkedin, Facebook } from 'lucide-react';
+import {Phone, MapPin, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -73,6 +73,13 @@ export function Footer() {
                   className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
                 >
                   <Facebook size={20} className="text-white" />
+                </a>
+                  <a
+                  href="https://www.instagram.com/bullecloud/"
+                  aria-label="Instagram"
+                  className="inline-block p-2 bg-gray-700/50 rounded-md hover:bg-brand-blue transition-colors"
+                >
+                  <Instagram size={20} className="text-white" />
                 </a>
               </div>
             </div>

@@ -7,7 +7,7 @@ import { Footer } from '@/components/layout/Footer';
 import { AboutUs } from '@/components/page_sections/AboutUs';
 import { Hero } from '@/components/page_sections/Hero';
 import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
-
+import { ScrollToTopButton } from '@/components/layout/ScrollToTopButton';
 import { ContactModal } from '@/components/ui/ContactModal';
 
 
@@ -25,6 +25,7 @@ export default function AboutPage() {
         <AboutUs /> 
         <LogoCarousel/>
       </main>
+        <ScrollToTopButton />
 
       <Footer />
             <ContactModal 
