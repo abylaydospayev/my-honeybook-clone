@@ -35,7 +35,8 @@ export function Hero() {
         </motion.h1>
 
         <motion.p
-          className="relative z-10 mt-4 text-2xl md:text-4xl font-light text-white/80"
+          className="relative z-10 text-4xl md:text-4xl font-extrabold drop-shadow-md"
+          //className="relative z-10 mt-4 text-2xl md:text-4xl font-light text-white/80"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
