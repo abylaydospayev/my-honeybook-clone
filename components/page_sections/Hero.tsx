@@ -35,7 +35,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.p
-          className="relative z-10 text-4xl md:text-4xl font-extrabold drop-shadow-md"
+          className="relative mt-2 z-10 text-4xl md:text-4xl font-extrabold drop-shadow-md"
           //className="relative z-10 mt-4 text-2xl md:text-4xl font-light text-white/80"
           initial="hidden"
           animate="visible"
@@ -48,11 +48,11 @@ export function Hero() {
         {/* Call to Action Button */}
         <motion.a
           href="#about"
-          className="relative z-10 mt-8 inline-block px-8 py-4 text-sm md:text-base font-semibold bg-white text-black rounded-md shadow-lg transition hover:bg-gray-200"
+          className="relative z-10 mt-6 inline-block px-8 py-4 text-sm md:text-base font-semibold bg-white text-black rounded-md shadow-lg transition hover:bg-gray-200"
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.3 }}
         >
           Discover More
         </motion.a>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import Image from 'next/image';
+import { team } from '@/lib/team-full-data';
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -13,101 +14,87 @@ const fadeInUp: Variants = {
   },
 };
 
-export const team = [
-    {
-      name: 'Hassan Wardere, MA, PMP',
-      title: 'PRINCIPAL',
-      email: 'hassan@bulleconsulting.com',
-      image: '/image/abdiwali.png',
-      description:
-        "Hassan is a policy strategist and organizational scaling expert... [rest of Hassan's bio]",
-    },
-    {
-      name: 'Laura Southard, MA',
-      title: 'HUMAN RESOURCES MANAGEMENT LEAD',
-      email: 'laura@bulleconsulting.com',
-      image: '/image/abdiwali.png',
-      description: "Laura Southard has been an adjunct instructor... [rest of Laura's bio]",
-    },
-    {
-      name: 'Abdiwali Mohamed, CPA, MST',
-      title: 'FINANCIAL MANAGEMENT & COMPLIANCE LEAD',
-      email: 'abdiwali@bulleconsulting.com',
-      image: '/image/abdiwali.png',
-      description: "Abdiwali Mohamed, CPA, MST, is in charge of Bulle Consulting’s... [rest of Abdiwali's bio]",
-    },
-    {
-      name: 'Jenn Charoni, MA',
-      title: 'PROJECT ASSOCIATE',
-      email: 'jenn@bulleconsulting.com',
-      image: '/image/abdiwali.png',
-      description: "Jenn has a background in organizational management... [rest of Jenn's bio]",
-    },
-    {
-      name: 'Aisha Ahmed',
-      title: 'HUMAN RESOURCES ASSOCIATE',
-      email: 'aisha@bulleconsulting.com',
-      image: '/image/abdiwali.png',
-      description: "Aisha is an experienced HR professional... [rest of Aisha's bio]",
-    },
-    {
-      name: 'David Bushnell, MA',
-      title: 'DATA MANAGEMENT & GOVERNANCE ASSOCIATE',
-      email: 'david@bulleconsulting.com',
-      image: '/image/abdiwali.png',
-      description: "David earned his master’s degree in Public Policy... [rest of David's bio]",
-    },
-    {
-      name: 'Abiodun Odeleye, MBA',
-      title: 'DATA ANALYST',
-      email: 'abiodun@bulleconsulting.com',
-      image: '/image/abdiwali.png',
-      description: "Abiodun Odeleye has created and managed 600+ Power BI... [rest of Abiodun's bio]",
-    },
-  ];
-  export function TeamMain() {
-   return (
-    <div className="bg-white px-4 py-16 max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-12">Meet Our Team</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+export function TeamMain() {
+  return (
+    <section className="bg-white px-4 py-20 max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-bold tracking-tight text-gray-900 mb-4">Meet Our Experts</h2>
+        <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          Passionate professionals driving innovation and impact.
+        </p>
+      </div>
+
+      {/* Top 3: Executives or Featured */}
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 mb-24">
         {team.slice(0, 3).map((member, idx) => (
-          <div key={idx} className="space-y-4">
-            <Image
-              src={member.image}
-              alt={member.name}
-              width={600}
-              height={400}
-              className="rounded-lg object-cover w-full h-auto"
-            />
-            <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
-            <p className="text-sm text-blue-600 font-semibold">{member.title}</p>
-            <p className="text-gray-700 text-sm whitespace-pre-line">{member.description}</p>
-            <a href={`mailto:${member.email}`} className="text-blue-500 hover:underline text-sm">
-              {member.email}
-            </a>
-          </div>
+          <motion.div
+            key={idx}
+            className="group space-y-5 rounded-xl bg-gray-50 p-5 hover:shadow-xl transition"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={idx}
+          >
+            <div className="overflow-hidden rounded-lg">
+              <Image
+                src={member.image}
+                alt={`Photo of ${member.name}`}
+                width={600}
+                height={400}
+                className="rounded-lg object-cover w-full h-100 filter grayscale group-hover:grayscale-0 transition duration-300"
+              />
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
+              <p className="text-sm text-brand-blue font-medium">{member.title}</p>
+              <p className="text-gray-600 text-sm whitespace-pre-line">{member.description}</p>
+              <a
+                href={`mailto:${member.email}`}
+                className="inline-block mt-2 text-blue-500 hover:underline text-sm"
+              >
+                {member.email}
+              </a>
+            </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Rest of the Team */}
+      <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {team.slice(3).map((member, idx) => (
-          <div key={idx} className="space-y-3">
-            <Image
-              src={member.image}
-              alt={member.name}
-              width={400}
-              height={300}
-              className="rounded-md object-cover w-full h-auto"
+          <motion.div
+            key={idx}
+            className="group space-y-4 rounded-lg bg-white p-4 border border-gray-100 shadow-sm hover:shadow-md transition"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={idx}
+          >
+            <div className="overflow-hidden rounded-md">
+              <Image
+                src={member.image}
+                alt={`Photo of ${member.name}`}
+                width={600}
+                height={400}
+                className="rounded-lg object-cover w-full h-100 filter grayscale group-hover:grayscale-0 transition duration-300"              
             />
-            <h4 className="text-lg font-semibold text-gray-800">{member.name}</h4>
-            <p className="text-xs text-blue-600 font-medium">{member.title}</p>
-            <p className="text-sm text-gray-600 line-clamp-5">{member.description}</p>
-            <a href={`mailto:${member.email}`} className="text-blue-500 hover:underline text-xs">
-              {member.email}
-            </a>
-          </div>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800">{member.name}</h4>
+              <p className="text-sm text-brand-blue font-medium">{member.title}</p>
+              <p className="text-sm text-gray-600 whitespace-pre-line">{member.description}</p>
+              <a
+                href={`mailto:${member.email}`}
+                className="inline-block mt-1 text-blue-500 hover:underline text-xs"
+              >
+                {member.email}
+              </a>
+            </div>
+          </motion.div>
         ))}
       </div>
-    </div>
-   );
-  }
+    </section>
+  );
+}

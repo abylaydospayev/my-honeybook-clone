@@ -59,7 +59,7 @@ export function TestimonialSection() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight text-white">
-            100+ Business Owners Feel the Magic
+            700+ Business Owners Feel the Magic
           </h2>
           <p className="mt-4 text-lg text-gray-400">
             See what our clients have to say about working with us
@@ -96,15 +96,6 @@ export function TestimonialSection() {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <a
-            href="#"
-            className="inline-flex items-center font-semibold text-white hover:text-gray-300 transition-colors"
-          >
-            Check our success stories <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
         </div>
       </div>
     </motion.section>

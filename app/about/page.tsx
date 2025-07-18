@@ -14,7 +14,6 @@ import { ContactModal } from '@/components/ui/ContactModal';
 export default function AboutPage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   return (
-      
       <div >
       <Header 
         variant="transparent" 
@@ -28,7 +27,6 @@ export default function AboutPage() {
       </main>
 
       <Footer />
-
             <ContactModal 
               isOpen={isContactModalOpen} 
               onClose={() => setIsContactModalOpen(false)} 

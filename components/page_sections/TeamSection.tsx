@@ -44,7 +44,7 @@ export function TeamSection() {
           <div className="mt-12 flex justify-center">
               <Link href="/ourteam">
             <Button variant="secondary" size="lg" className="w-full max-w-xs">
-              Meet Our Entire Team of Experts
+              Meet Our Entire Team
             </Button>
             </Link>
           </div>
