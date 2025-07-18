@@ -21,7 +21,7 @@ export function AboutUs() {
 
       
       {/* Main content */}
-      <main className="pt-24 px-6 md:px-20 pb-24 space-y-28 text-gray-800">
+      <main className="pt-32 px-6 md:px-20 pb-24 space-y-28 text-gray-800">
         {/* About Section */}
         <motion.section
           className="flex flex-col md:flex-row items-center gap-12"

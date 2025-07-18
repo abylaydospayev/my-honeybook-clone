@@ -8,7 +8,6 @@ import { Button } from '../ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { navItems } from '@/lib/navigation-data';
 
-// --- FIX IS HERE: Define the props that the Header component can accept ---
 type HeaderProps = {
   variant?: 'solid' | 'transparent';
   onContactClick?: () => void;
@@ -46,7 +45,6 @@ export function Header({ variant = 'solid', onContactClick }: HeaderProps) {
             />
           </Link>
 
-          {/* Desktop Mega Menu Navigation */}
           <NavigationMenu.Root className="hidden lg:flex justify-center">
             <NavigationMenu.List className="flex items-center space-x-2">
               {navItems.map((item) => (
@@ -98,9 +96,16 @@ export function Header({ variant = 'solid', onContactClick }: HeaderProps) {
           </NavigationMenu.Root>
           
           <div className="hidden lg:flex items-center space-x-2">
-             <Button onClick={onContactClick} className={!showSolidHeader ? 'bg-white text-dark-gray hover:bg-gray-200' : ''}>
-                Let's talk
-             </Button>
+            {/* 1. Changed variant to "secondary" to apply the brand blue color */}
+            <Button asChild variant="secondary">
+              <a href="https://projects.bulleconsulting.com/" target="_blank" rel="noopener noreferrer">
+                Login
+              </a>
+            </Button>
+            
+            <Button onClick={onContactClick} className={!showSolidHeader ? 'bg-white text-dark-gray hover:bg-gray-200' : 'bg-dark-gray text-white'}>
+              Let's talk
+            </Button>
           </div>
 
           <div className="lg:hidden">
@@ -139,8 +144,14 @@ export function Header({ variant = 'solid', onContactClick }: HeaderProps) {
                 </div>
               ))}
               <hr className="my-2" />
-              <div className="px-4 py-2">
-                 <Button onClick={onContactClick} className="w-full">Let's talk</Button>
+              <div className="px-4 py-2 flex items-center gap-2">
+                {/* 2. Changed variant to "secondary" here as well */}
+                <Button asChild variant="secondary" className="w-full">
+                  <a href="https://projects.bulleconsulting.com/" target="_blank" rel="noopener noreferrer">
+                    Login
+                  </a>
+                </Button>
+                <Button onClick={onContactClick} className="w-full">Let's talk</Button>
               </div>
             </nav>
           </div>

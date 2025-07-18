@@ -9,46 +9,42 @@ const serviceData = [
     title: 'Capacity Building Support',
     description: 'Strengthening internal infrastructures that help CBOs and SMEs scale effectively, using equity-driven strategies to ensure all stakeholders thrive.',
     videoSrc: '/video/growth_curve.mp4',
-    posterSrc: '/video/posters/growth_curve_poster.jpg',
-    bgColor: 'bg-[#201c2c]', // UPDATED: Now a consistent dark color
-    textColor: 'text-white', // UPDATED: Text is now white
+    bgColor: 'bg-[#20bad1]',
+    textColor: 'text-white',
     isFeatured: false,
-    href: '/services/capacity-building',
+    href: '/services',
   },
   {
     title: 'Assisting Small Businesses',
     description: 'We use a participatory and pragmatic approach to strengthen small businesses, improve delivery, and enhance growth trajectories.',
     videoSrc: '/video/business_plan.mp4',
-    posterSrc: '/video/posters/business_plan_poster.jpg',
-    bgColor: 'bg-[#3266eb]', // This remains the featured blue color
+    bgColor: 'bg-[#20bad1]',
     textColor: 'text-white',
     isFeatured: true,
-    href: '/services/small-business',
+    href: '/services',
   },
   {
     title: 'RoR Framework Implementation',
     description: 'Our authentic Return on Relationship process goes beyond talk, focusing on proactively engaging clients and communities to build deep connections.',
     videoSrc: '/video/business_deal.mp4',
-    posterSrc: '/video/posters/business_deal_poster.jpg',
-    bgColor: 'bg-[#201c2c]', // This was already a consistent dark color
+    bgColor: 'bg-[#20bad1]',
     textColor: 'text-white',
     isFeatured: false,
-    href: '/services/ror-framework',
+    href: '/services',
   },
   {
     title: 'International Trade Initiatives',
     description: 'Our partners include trade associations, universities, and financial institutions, helping clients create new relationships and collaborative opportunities.',
     videoSrc: '/video/international_trade.mp4', 
-    posterSrc: '/video/posters/international_trade_poster.jpg',
-    bgColor: 'bg-[#3b6aeb]', // This remains a distinct blue color
+    bgColor: 'bg-[#20bad1]',
     textColor: 'text-white',
     isFeatured: false,
-    href: '/services/international-trade',
+    href: '/services',
   },
 ];
 
-// Helper component to handle the play-on-scroll logic
-function VideoPlayer({ src, poster }: { src: string, poster: string }) {
+// Helper component updated to remove poster
+function VideoPlayer({ src }: { src: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +80,7 @@ function VideoPlayer({ src, poster }: { src: string, poster: string }) {
         muted
         playsInline
         preload="metadata"
-        poster={poster}
+        // poster attribute removed
         aria-hidden="true"
         className="w-full h-full object-contain object-bottom p-4"
         key={src}
@@ -98,13 +94,13 @@ function VideoPlayer({ src, poster }: { src: string, poster: string }) {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-light-gray dark:bg-black">
+    <section id="services" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-dark-gray dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
             A Framework for Growth and Scalability
           </h2>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
+          <p className="mt-6 text-lg text-gray-300">
             Our services are designed to strengthen your internal infrastructures, create authentic connections, and provide the strategic support needed to scale with purpose.
           </p>
         </div>
@@ -126,8 +122,9 @@ export function ServicesSection() {
                       {service.description}
                     </p>
                   </div>
-
-                  <VideoPlayer src={service.videoSrc} poster={service.posterSrc} />
+                  
+                  {/* Call to VideoPlayer updated to remove poster */}
+                  <VideoPlayer src={service.videoSrc} />
 
                 </Card>
               </Link>

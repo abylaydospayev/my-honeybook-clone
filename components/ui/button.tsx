@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
-import './button_54.css'; // make sure this includes .btn-54 styles
+import './button_54.css';
 import './button_85.css';
 import { cn } from '@/lib/utils';
 
@@ -12,9 +12,11 @@ const buttonVariants = cva(
       variant: {
         primary: 'bg-dark-gray text-white hover:bg-dark-gray/90',
         secondary: 'bg-brand-blue text-white hover:bg-brand-blue/90',
-        deep3d: 'btn-54', // Tailwind won’t apply here, CSS handles this
-        deepBorder: 'btn-85'
-
+        deep3d: 'btn-54',
+        deepBorder: 'btn-85',
+        // --- ADDED GHOST AND OUTLINE VARIANTS ---
+        ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800',
+        outline: 'border border-gray-200 dark:border-gray-700 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800',
       },
       size: {
         default: 'px-5 py-2.5',
@@ -37,11 +39,13 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
+    // Note: The base class logic doesn't need to change.
+    // CVA will apply the correct classes for 'ghost' and 'outline'.
     const baseClass = cn(buttonVariants({ variant, size, className }));
 
     if (variant === 'deep3d') {
       return (
-        <Comp className={cn('btn-54', baseClass)} ref={ref} {...props}>
+        <Comp className={cn('btn-54', className)} ref={ref} {...props}>
           <span className="shadow"></span>
           <span className="depth"></span>
           <span className="content">{children}</span>
@@ -51,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (variant === 'deepBorder') {
       return (
-        <Comp className={cn('btn-85', baseClass)} ref={ref} {...props}>
+        <Comp className={cn('btn-85', className)} ref={ref} {...props}>
           <span>{children}</span>
         </Comp>
       );
