@@ -8,9 +8,9 @@ const serviceData = [
   {
     title: 'Capacity Building Support',
     description: 'Strengthening internal infrastructures that help CBOs and SMEs scale effectively, using equity-driven strategies to ensure all stakeholders thrive.',
-    videoSrc: '/video/team_goals.mp4',
-    bgColor: 'bg-gray-100 dark:bg-gray-800',
-    textColor: 'text-dark-gray dark:text-gray-200',
+    videoSrc: '/video/growth_curve.mp4',
+    bgColor: 'bg-[#201c2c] dark:bg-gray-800',
+    textColor: 'text-white',
     isFeatured: false,
     href: '/services/capacity-building',
   },
@@ -26,7 +26,7 @@ const serviceData = [
   {
     title: 'RoR Framework Implementation',
     description: 'Our authentic Return on Relationship process goes beyond talk, focusing on proactively engaging clients and communities to build deep connections.',
-    videoSrc: '/video/business_deal.mp4', // Corrected filename
+    videoSrc: '/video/business_deal.mp4',
     bgColor: 'bg-[#201c2c]',
     textColor: 'text-white',
     isFeatured: false,
@@ -35,7 +35,7 @@ const serviceData = [
   {
     title: 'International Trade Initiatives',
     description: 'Our partners include trade associations, universities, and financial institutions, helping clients create new relationships and collaborative opportunities.',
-    videoSrc: '/video/International trade.mp4',
+    videoSrc: '/video/international_trade.mp4', 
     bgColor: 'bg-[#3b6aeb]',
     textColor: 'text-white',
     isFeatured: false,
@@ -44,7 +44,6 @@ const serviceData = [
 ];
 
 // Helper component to handle the play-on-scroll logic
-// For larger projects, move this to its own file (e.g., components/ui/VideoPlayer.tsx)
 function VideoPlayer({ src }: { src: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,24 +56,22 @@ function VideoPlayer({ src }: { src: string }) {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // When the video container is 50% visible, play the video
         if (entries[0].isIntersecting) {
           videoElement.play();
-          observer.unobserve(containerElement); // Stop observing after it has played once
+          observer.unobserve(containerElement); 
         }
       },
-      { threshold: 0.5 } // Trigger when 50% of the element is visible
+      { threshold: 0.5 }
     );
 
     observer.observe(containerElement);
 
     return () => {
-      // Cleanup observer on component unmount
       if (containerElement) {
         observer.unobserve(containerElement);
       }
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, [src]); // Added src to dependency array to handle dynamic sources
 
   return (
     <div ref={containerRef} className="relative h-64 w-full mt-auto">
@@ -95,7 +92,7 @@ function VideoPlayer({ src }: { src: string }) {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg--gray dark:bg-black">
+    <section id="services" className="py-24 bg-light-gray dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-dark-gray dark:text-white">
@@ -112,9 +109,9 @@ export function ServicesSection() {
               <Link href={service.href} className="h-full block group">
                 <Card
                   className={`
-                    flex flex-col h-full rounded-3xl overflow-hidden transition-all duration-300 group-hover:shadow-lg
+                    flex flex-col h-full rounded-3xl overflow-hidden transition-all duration-300 group-hover:shadow-2xl
                     ${service.bgColor}
-                    ${service.isFeatured ? 'ring-4 ring-blue-500/50 shadow-2xl shadow-blue-500/30' : 'group-hover:-translate-y-1'}
+                    ${service.isFeatured ? 'ring-4 ring-blue-500/50 shadow-2xl shadow-blue-500/30' : 'group-hover:-translate-y-2'}
                   `}
                 >
                   <div className={`p-8 pb-0 flex-grow ${service.textColor}`}>
