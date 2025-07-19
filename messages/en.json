@@ -1,0 +1,42 @@
+{
+  "Header": {
+    "services": "Services",
+    "aboutUs": "About Us",
+    "ourTeam": "Our Team",
+    "careers": "Careers",
+    "login": "Login",
+    "letsTalk": "Let's talk"
+  },
+  "Hero": {
+    "title_line1": "BUILT ON RELATIONSHIPS",
+    "title_line2": "DRIVEN BY RESULTS",
+    "discoverMore": "Discover More"
+  },
+  "HomePage": {
+    "heroTitle": "FIND THAT MISSING PIECE",
+    "heroDescription": "We Can Find What's Missing In Your Business And Address Your Needs"
+  },
+  "ServicesMain": {
+    "ourServices": "Our Services",
+    "title": "Making Strategy Simple & Purposeful",
+    "description": "We help businesses and community organizations grow sustainably by offering data-driven strategy, stakeholder engagement, and operational clarity. At Bulle Consulting, we don’t just provide services—we build futures.",
+    "stat1_title": "Data-Driven Strategy",
+    "stat1_desc": "Leveraging analytics to provide actionable insights for sustainable growth.",
+    "stat2_title": "Stakeholder Engagement",
+    "stat2_desc": "Building consensus and aligning stakeholders with your organization's goals.",
+    "stat3_title": "Operational Clarity",
+    "stat3_desc": "Streamlining processes to improve efficiency and drive execution.",
+    "coreServices_title": "Our Core Services",
+    "coreServices_desc": "We provide a tailored approach to meet the unique needs of each client, ensuring that our strategies are not just visionary but also practical and implementable.",
+    "service1_title": "Strategic Planning",
+    "service1_desc": "We develop comprehensive strategic plans that align with your vision, backed by market research and competitive analysis to ensure long-term success.",
+    "service2_title": "Community Engagement",
+    "service2_desc": "Our team specializes in creating authentic connections with communities and stakeholders, ensuring that all voices are heard and valued in the strategic process.",
+    "service3_title": "Operational Improvement",
+    "service3_desc": "We identify and eliminate inefficiencies in your operations, implementing streamlined processes that enhance productivity and reduce costs."
+  },
+  "ContactHero": {
+    "title": "Contact Us",
+    "description": "Have a question or a project in mind? We'd love to hear from you."
+  }
+}

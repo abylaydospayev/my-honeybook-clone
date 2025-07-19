@@ -1,0 +1,42 @@
+{
+  "Header": {
+    "services": "Services",
+    "aboutUs": "À Propos",
+    "ourTeam": "Notre Équipe",
+    "careers": "Carrières",
+    "login": "Connexion",
+    "letsTalk": "Discutons"
+  },
+  "Hero": {
+    "title_line1": "BÂTI SUR LES RELATIONS",
+    "title_line2": "GUIDÉ PAR LES RÉSULTATS",
+    "discoverMore": "Découvrir Plus"
+  },
+  "HomePage": {
+    "heroTitle": "TROUVEZ LA PIÈCE MANQUANTE",
+    "heroDescription": "Nous pouvons trouver ce qui manque à votre entreprise et répondre à vos besoins"
+  },
+  "ServicesMain": {
+    "ourServices": "Nos Services",
+    "title": "Rendre la Stratégie Simple et Pertinente",
+    "description": "Nous aidons les entreprises et les organisations communautaires à croître durablement en offrant une stratégie basée sur les données, l'engagement des parties prenantes et la clarté opérationnelle. Chez Bulle Consulting, nous ne fournissons pas seulement des services, nous construisons des avenirs.",
+    "stat1_title": "Stratégie Basée sur les Données",
+    "stat1_desc": "Exploiter l'analytique pour fournir des informations exploitables pour une croissance durable.",
+    "stat2_title": "Engagement des Parties Prenantes",
+    "stat2_desc": "Construire un consensus et aligner les parties prenantes sur les objectifs de votre organisation.",
+    "stat3_title": "Clarté Opérationnelle",
+    "stat3_desc": "Rationaliser les processus pour améliorer l'efficacité et stimuler l'exécution.",
+    "coreServices_title": "Nos Services Principaux",
+    "coreServices_desc": "Nous proposons une approche sur mesure pour répondre aux besoins uniques de chaque client, en veillant à ce que nos stratégies ne soient pas seulement visionnaires, mais aussi pratiques et réalisables.",
+    "service1_title": "Planification Stratégique",
+    "service1_desc": "Nous développons des plans stratégiques complets qui s'alignent sur votre vision, soutenus par des études de marché et des analyses concurrentielles pour assurer un succès à long terme.",
+    "service2_title": "Engagement Communautaire",
+    "service2_desc": "Notre équipe se spécialise dans la création de liens authentiques avec les communautés et les parties prenantes, en veillant à ce que toutes les voix soient entendues et valorisées dans le processus stratégique.",
+    "service3_title": "Amélioration Opérationnelle",
+    "service3_desc": "Nous identifions et éliminons les inefficacités dans vos opérations, en mettant en œuvre des processus rationalisés qui améliorent la productivité et réduisent les coûts."
+  },
+  "ContactHero": {
+    "title": "Contactez-nous",
+    "description": "Vous avez une question ou un projet en tête ? Nous serions ravis de vous entendre."
+  }
+}

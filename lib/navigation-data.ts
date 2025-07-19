@@ -1,7 +1,7 @@
 import { BarChart, Briefcase, Users, Globe, LayoutGrid, type LucideIcon } from 'lucide-react';
 
 // Define the shape for a link item in the dropdown
-type LinkItem = {
+export type LinkItem = {
   type: 'link';
   title: string;
   href: string;
@@ -10,7 +10,7 @@ type LinkItem = {
 };
 
 // Define the shape for a heading item in the dropdown
-type HeadingItem = {
+export type HeadingItem = {
   type: 'heading';
   title: string;
 };
@@ -36,13 +36,6 @@ export const navItems: NavItem[] = [
       {
         type: 'heading',
         title: 'Our Offerings',
-      },
-      {
-        type: 'link',
-        title: "All Services",
-        description: "View all of our core service offerings.",
-        href: "/services",
-        icon: LayoutGrid
       },
       {
         type: 'link',

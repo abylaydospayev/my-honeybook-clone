@@ -22,7 +22,10 @@ export default function HomePage() {
       />
 
       <main>
-        <HeroSection />
+        <HeroSection 
+  title="FIND THAT MISSING PIECE" 
+  description="We Can Find What's Missing In Your Business And Address Your Needs" 
+/>
         <ServicesSection />
         <TeamSection />
         <TestimonialSection />

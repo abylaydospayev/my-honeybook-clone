@@ -1,64 +1,87 @@
+/* --- Tailwind Directives --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import '../components/ui/button_54.css';
 
-
+/* --- Base Styles --- */
 html, body {
   overflow-x: hidden;
   position: relative;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-@keyframes infinite-scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-infinite-scroll {
-  animation: infinite-scroll 30s linear infinite;
-}
-
-
-
-/* For Webkit-based browsers (Chrome, Safari, Edge) */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* For other browsers like Firefox, and to be thorough */
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
+/* --- Custom Animations & Utilities --- */
 @layer utilities {
   .animate-spin-slow {
     animation: spin 2s linear infinite;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+
+/* --- Scrollbar Utility --- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out both;
+
+/* === NEW Google Translate Styles === */
+
+/* HIDE the Google Translate banner and other pop-ups */
+.goog-te-banner-frame, #goog-gt-tt {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+/* HIDE the default Google logo/icon inside the widget */
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+/* Style the main widget container to look like our button */
+#google_translate_element .goog-te-gadget-simple {
+  background-color: #20BAD1 !important;
+  border: none !important;
+  border-radius: 9999px !important; /* Make it a circle */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 64px !important; /* 4rem */
+  height: 64px !important; /* 4rem */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  cursor: pointer;
+  overflow: hidden; /* Hide the dropdown arrow */
+}
+
+/* HIDE the language text (e.g., "Select Language") */
+#google_translate_element .goog-te-gadget-simple span {
+  display: none;
+}
+
+/* Create a fake Globe icon using a background image */
+#google_translate_element .goog-te-gadget-simple::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Style the actual dropdown element to be transparent and fill the button */
+#google_translate_element .goog-te-combo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Make it invisible */
+  cursor: pointer;
 }

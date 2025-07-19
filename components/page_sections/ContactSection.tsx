@@ -1,11 +1,16 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { Card } from '../ui/card';
 import { Button } from '../ui/button';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
-export function ContactSection() {
+// 1. Define an interface for the component's props
+interface ContactSectionProps {
+  onContactClick: () => void;
+}
+
+// 2. Accept the props in your component
+export function ContactSection({ onContactClick }: ContactSectionProps) {
   const animationVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -18,7 +23,6 @@ export function ContactSection() {
   return (
     <motion.section
       id="contact"
-      // FIX: Changed background to bg-gray-100
       className="py-24 sm:py-32 bg-gray-100"
       initial="hidden"
       whileInView="visible"
@@ -26,7 +30,6 @@ export function ContactSection() {
       variants={animationVariants}
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-gray">
             Get In Touch
@@ -36,13 +39,11 @@ export function ContactSection() {
           </p>
         </div>
 
-        {/* Main container with two columns */}
         <div className="mt-16 grid lg:grid-cols-2 gap-12 items-start">
           
           {/* Left Column: Contact Details */}
           <div className="space-y-8">
             <div className="flex items-start gap-4">
-              {/* FIX: Changed icon background to white to stand out on the gray */}
               <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
                 <Mail className="w-6 h-6 text-brand-blue" />
               </div>
@@ -55,7 +56,7 @@ export function ContactSection() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-               <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+              <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
                 <Phone className="w-6 h-6 text-brand-blue" />
               </div>
               <div>
@@ -66,8 +67,8 @@ export function ContactSection() {
                 </a>
               </div>
             </div>
-             <div className="flex items-start gap-4">
-               <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
                 <MapPin className="w-6 h-6 text-brand-blue" />
               </div>
               <div>
@@ -77,34 +78,22 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: Contact Form */}
-          <Card className="p-8 border-gray-200/80">
-            <form action="#" method="POST" className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-dark-gray">Full Name</label>
-                <div className="mt-1">
-                  <input type="text" name="name" id="name" autoComplete="name" className="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-blue focus:ring-brand-blue sm:text-sm p-3" />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-dark-gray">Email Address</label>
-                <div className="mt-1">
-                  <input type="email" name="email" id="email" autoComplete="email" className="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-blue focus:ring-brand-blue sm:text-sm p-3" />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-dark-gray">Message</label>
-                <div className="mt-1">
-                  <textarea name="message" id="message" rows={4} className="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-blue focus:ring-brand-blue sm:text-sm p-3"></textarea>
-                </div>
-              </div>
-              <div>
-                <Button type="submit" size="lg" variant="secondary" className="w-full">
-                  Send Message
-                </Button>
-              </div>
-            </form>
-          </Card>
+          {/* Right Column: Call to Action to open the modal */}
+          <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-200/80 flex flex-col items-center justify-center text-center h-full">
+            <h3 className="text-2xl font-bold text-dark-gray">Have a project in mind?</h3>
+            <p className="mt-4 text-gray-600">
+              Click the button below to fill out our contact form, and we'll get back to you shortly.
+            </p>
+            {/* 3. Use the onContactClick prop on the button */}
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="mt-8 w-full"
+              onClick={onContactClick}
+            >
+              Open Contact Form
+            </Button>
+          </div>
 
         </div>
       </div>

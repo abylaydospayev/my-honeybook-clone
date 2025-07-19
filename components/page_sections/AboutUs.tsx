@@ -71,7 +71,7 @@ export function AboutUs() {
             We’re Delivering the Best<br className="hidden md:block" /> Customer Experience
           </h3>
           <a
-            href="#services"
+            href="https://projects.bulleconsulting.com/"
             className="bg-[#13111A] text-white font-semibold px-8 py-4 text-sm tracking-wide rounded-md transition duration-300 hover:bg-[#1f1c2a]"
           >
             DISCOVER MORE
