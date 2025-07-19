@@ -31,11 +31,10 @@ const ContactHero = () => (
 export default function ContactUsPage() {
   return (
     <div className="bg-light-gray overflow-x-hidden">
-      {/* We tell the Header to use the transparent variant for this page */}
-      <Header/>
+      <Header />
       <main>
         <ContactHero />
-        <ContactSection /> 
+        <ContactSection onContactClick={() => { console.log('Contact clicked'); }} />
         <LogoCarousel />
       </main>
       <Footer />
