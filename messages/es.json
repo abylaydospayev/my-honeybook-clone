@@ -1,0 +1,42 @@
+{
+  "Header": {
+    "services": "Servicios",
+    "aboutUs": "Sobre Nosotros",
+    "ourTeam": "Nuestro Equipo",
+    "careers": "Carreras",
+    "login": "Iniciar Sesión",
+    "letsTalk": "Hablemos"
+  },
+  "Hero": {
+    "title_line1": "CONSTRUIDO SOBRE RELACIONES",
+    "title_line2": "IMPULSADO POR RESULTADOS",
+    "discoverMore": "Descubre Más"
+  },
+  "HomePage": {
+    "heroTitle": "ENCUENTRA ESA PIEZA FALTANTE",
+    "heroDescription": "Podemos encontrar lo que falta en tu negocio y satisfacer tus necesidades"
+  },
+  "ServicesMain": {
+    "ourServices": "Nuestros Servicios",
+    "title": "Haciendo la Estrategia Simple y Con Propósito",
+    "description": "Ayudamos a empresas y organizaciones comunitarias a crecer de manera sostenible ofreciendo estrategia basada en datos, participación de las partes interesadas y claridad operativa. En Bulle Consulting, no solo brindamos servicios, construimos futuros.",
+    "stat1_title": "Estrategia Basada en Datos",
+    "stat1_desc": "Aprovechando el análisis para proporcionar ideas procesables para un crecimiento sostenible.",
+    "stat2_title": "Participación de Interesados",
+    "stat2_desc": "Construyendo consenso y alineando a las partes interesadas con los objetivos de su organización.",
+    "stat3_title": "Claridad Operativa",
+    "stat3_desc": "Optimizando procesos para mejorar la eficiencia e impulsar la ejecución.",
+    "coreServices_title": "Nuestros Servicios Principales",
+    "coreServices_desc": "Ofrecemos un enfoque a medida para satisfacer las necesidades únicas de cada cliente, asegurando que nuestras estrategias no solo sean visionarias, sino también prácticas e implementables.",
+    "service1_title": "Planificación Estratégica",
+    "service1_desc": "Desarrollamos planes estratégicos integrales que se alinean con su visión, respaldados por investigación de mercado y análisis competitivo para garantizar el éxito a largo plazo.",
+    "service2_title": "Participación Comunitaria",
+    "service2_desc": "Nuestro equipo se especializa en crear conexiones auténticas con comunidades y partes interesadas, asegurando que todas las voces sean escuchadas y valoradas en el proceso estratégico.",
+    "service3_title": "Mejora Operativa",
+    "service3_desc": "Identificamos y eliminamos ineficiencias en sus operaciones, implementando procesos optimizados que mejoran la productividad y reducen costos."
+  },
+  "ContactHero": {
+    "title": "Contáctanos",
+    "description": "¿Tienes una pregunta o un proyecto en mente? Nos encantaría saber de ti."
+  }
+}

@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import { useRef } from "react";
+import { motion, type Variants } from "framer-motion";
+import { MediaBackgroundSection } from "./MediaBackgroundSection"; // Adjust the import path as needed
 
-// A single, reusable variant for the text items
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -17,41 +16,20 @@ const itemVariants: Variants = {
 };
 
 export function ContactHero() {
-  // A ref to track the section element for scroll calculations
-  const targetRef = useRef<HTMLDivElement>(null);
-
-  // Framer Motion hook to track scroll progress within this section
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Create the parallax effect by transforming scroll progress into vertical movement
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-
   return (
-    <section ref={targetRef} className="relative h-[50vh] min-h-[350px] bg-dark-gray flex items-center justify-center text-center text-white overflow-hidden">
-      
-      {/* The background image now moves with a parallax effect */}
+    <MediaBackgroundSection
+      mediaSrc="/video/background_pic.mp4" // Using the same video background
+      mediaType="video"
+      overlayClass="bg-black/70" // A slightly different overlay for this page
+      fullHeight={false} // Set to false to control height, e.g., 'min-h-[50vh]'
+      contentClass="text-white text-center px-6"
+    >
       <motion.div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('/image/hasan.pixels.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          y, // The parallax effect is applied here
-        }}
-      />
-      
-      <div className="absolute inset-0 bg-black/70 z-10"></div>
-
-      {/* This container will stagger the animation of its children */}
-      <motion.div
-        className="relative z-20 px-6"
+        className="relative z-20"
         initial="hidden"
-        whileInView="visible" // Animate when the component is in view
+        whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
-        transition={{ staggerChildren: 0.2 }} // Animate children one by one
+        transition={{ staggerChildren: 0.2 }}
       >
         <motion.h1
           className="text-4xl md:text-6xl font-extrabold tracking-tight"
@@ -66,6 +44,6 @@ export function ContactHero() {
           Have a question or a project in mind? We'd love to hear from you.
         </motion.p>
       </motion.div>
-    </section>
+    </MediaBackgroundSection>
   );
 }
