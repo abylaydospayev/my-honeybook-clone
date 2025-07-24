@@ -127,7 +127,7 @@ export function Header({ variant = 'solid', onContactClick }: HeaderProps) {
                           <NavigationMenu.Trigger asChild>
                             <a href={item.href} className={`group relative inline-flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none ${linkClasses} ${showSolidHeader ? 'hover:bg-gray-100' : 'hover:bg-white/10'}`}>
                               <span>{item.title}</span>
-                              <ChevronDownIcon className="opacity-0 group-hover:opacity-100 transform translate-y-0 group-hover:translate-y-1 transition-all duration-200" />
+                              <ChevronDownIcon className="opacity-0 group-hover:opacity-100 transform translate-y-0 group-hover:translate-y-0 transition-all duration-200" />
                               {isActive && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#20bad1]"></span>}
                             </a>
                           </NavigationMenu.Trigger>

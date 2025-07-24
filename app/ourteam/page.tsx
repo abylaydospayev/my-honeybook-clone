@@ -8,6 +8,8 @@ import { TeamMain } from '@/components/page_sections/TeamMain';
 import { ScrollToTopButton } from '@/components/layout/ScrollToTopButton';
 import { ContactModal } from '@/components/ui/ContactModal';
 import { useState } from 'react';
+import { HeroTeam } from '@/components/page_sections/HeroTeam';
+
 
 export default function TeamPage() {
      const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -15,6 +17,7 @@ export default function TeamPage() {
       <div >
       <Header />
       <main>
+        <HeroTeam />
         <TeamMain />
         <LogoCarousel />
       </main>
