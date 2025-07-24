@@ -10,8 +10,6 @@ import { TeamSection } from '@/components/page_sections/TeamSection';
 import { TestimonialSection } from '@/components/page_sections/TestimonialSection';
 import { ContactModal } from '@/components/ui/ContactModal';
 import { ScrollToTopButton } from '@/components/layout/ScrollToTopButton';
-import { AnimatedTestimonials } from '@/components/ui/AnimatedTestimonials';
-
 
 
 export default function HomePage() {

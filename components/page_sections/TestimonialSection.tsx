@@ -32,13 +32,13 @@ export function TestimonialSection() {
   const next = () => setIndex((prev) => (prev + 1) % testimonials.length);
   const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
-  useEffect(() => {
-    const play = () => {
-      timeoutRef.current = setTimeout(next, 6000);
-    };
-    play();
-    return () => timeoutRef.current && clearTimeout(timeoutRef.current);
-  }, [index]);
+  // useEffect(() => {
+  //   const play = () => {
+  //     timeoutRef.current = setTimeout(next, 6000);
+  //   };
+  //   play();
+  //   return () => timeoutRef.current && clearTimeout(timeoutRef.current);
+  // }, [index]);
 
   return (
     <div className="relative w-full max-w-4xl mx-auto px-6 py-16">
