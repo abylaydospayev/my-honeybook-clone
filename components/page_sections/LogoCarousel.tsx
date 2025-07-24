@@ -37,7 +37,7 @@ export function LogoCarousel() {
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
           }}
         >
-          <div className="flex w-max animate-infinite-scroll group-hover:pause">
+          <div className="flex w-max animate-scroll group-hover:pause">
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
