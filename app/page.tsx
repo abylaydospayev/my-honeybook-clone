@@ -28,7 +28,7 @@ export default function HomePage() {
   description="We Can Find What's Missing In Your Business And Address Your Needs" 
 />
         <ServicesSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
 
         <TestimonialSection/>
         

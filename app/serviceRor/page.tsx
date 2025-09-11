@@ -4,13 +4,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { ServicesMain } from '@/components/page_sections/ServicesMain';
-import { CategoriesCards } from '@/components/page_sections/CategoriesCards';
 import { LogoCarousel } from '@/components/page_sections/LogoCarousel';
 import { ContactModal } from '@/components/ui/ContactModal'
 import { ScrollToTopButton } from '@/components/layout/ScrollToTopButton';
+import { ServicesRor } from '@/components/page_sections/ServicesRor';
 
-export default function ServicesPage() {
+export default function ServicesRorPage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   return (
       
@@ -21,8 +20,7 @@ export default function ServicesPage() {
       />
 
       <main>
-        <ServicesMain /> 
-        <CategoriesCards/>
+        <ServicesRor /> 
         <LogoCarousel />
       </main>
         <ScrollToTopButton />

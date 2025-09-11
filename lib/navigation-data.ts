@@ -31,46 +31,46 @@ export const navItems: NavItem[] = [
   {
     title: "Services",
     href: "/services", // This ensures the main button is a clickable link
-    children: [
-      // Column 1
-      {
-        type: 'heading',
-        title: 'Our Offerings',
-      },
-      {
-        type: 'link',
-        title: "Capacity Building Support",
-        description: "Strengthening your organization from the inside out.",
-        href: "/services#capacity-building",
-        icon: Users 
-      },
-      {
-        type: 'link',
-        title: "Assisting Small Businesses",
-        description: "Tailored strategies for SME growth and scalability.",
-        href: "/services#small-business",
-        icon: Briefcase
-      },
-      // Column 2
-      {
-        type: 'heading',
-        title: 'Frameworks & Initiatives',
-      },
-      {
-        type: 'link',
-        title: "ROR Framework Implementation",
-        description: "Maximizing your Return on Relationship.",
-        href: "/services#ror-framework",
-        icon: BarChart
-      },
-      {
-        type: 'link',
-        title: "International Trade",
-        description: "Connecting your business to global opportunities.",
-        href: "/services#international-trade",
-        icon: Globe
-      },
-    ]
+    // children: [
+    //   // Column 1
+    //   {
+    //     type: 'heading',
+    //     title: 'Our Offerings',
+    //   },
+    //   {
+    //     type: 'link',
+    //     title: "Capacity Building Support",
+    //     description: "Strengthening your organization from the inside out.",
+    //     href: "/services#capacity-building",
+    //     icon: Users 
+    //   },
+    //   {
+    //     type: 'link',
+    //     title: "Assisting Small Businesses",
+    //     description: "Tailored strategies for SME growth and scalability.",
+    //     href: "/services#small-business",
+    //     icon: Briefcase
+    //   },
+    //   // Column 2
+    //   {
+    //     type: 'heading',
+    //     title: 'Frameworks & Initiatives',
+    //   },
+    //   {
+    //     type: 'link',
+    //     title: "ROR Framework Implementation",
+    //     description: "Maximizing your Return on Relationship.",
+    //     href: "/services#ror-framework",
+    //     icon: BarChart
+    //   },
+    //   {
+    //     type: 'link',
+    //     title: "International Trade",
+    //     description: "Connecting your business to global opportunities.",
+    //     href: "/services#international-trade",
+    //     icon: Globe
+    //   },
+    // ]
   },
   {
     title: "About Us",
