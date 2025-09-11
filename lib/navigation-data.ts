@@ -29,6 +29,10 @@ export type NavItem = {
 // Apply the NavItem[] type to our constant
 export const navItems: NavItem[] = [
   {
+    title: "Home",
+    href: "/",
+  },
+  {
     title: "Services",
     href: "/services", // This ensures the main button is a clickable link
     // children: [

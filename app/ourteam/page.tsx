@@ -16,7 +16,10 @@ export default function TeamPage() {
      const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   return (
       <div >
-      <Header />
+      <Header 
+        variant="transparent" 
+        onContactClick={() => setIsContactModalOpen(true)} 
+      />
       <main>
         <HeroTeam />
         <TeamMain />

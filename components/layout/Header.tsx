@@ -117,9 +117,12 @@ export function Header({ variant = 'solid', onContactClick }: HeaderProps) {
           {/* Center: Nav */}
           <div className="hidden lg:flex justify-center flex-1">
             <NavigationMenu.Root>
-              <NavigationMenu.List className="flex items-center space-x-2">
+              <NavigationMenu.List className="flex items-center space-x-2 whitespace-nowrap">
                 {navItems.map(item => {
-                  const isActive = !!(item.href && pathname.startsWith(item.href));
+                  const isActive =
+                  item.href === "/"
+                  ? pathname === "/" // only highlight home if we are exactly on "/"
+                  : item.href && pathname.startsWith(item.href);
                   return (
                     <NavigationMenu.Item key={item.title}>
                       {item.children ? (

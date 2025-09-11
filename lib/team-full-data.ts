@@ -57,7 +57,7 @@ export const team = [
       name: 'Aisha Ahmed',
       title: 'HUMAN RESOURCES ASSOCIATE',
       email: 'aisha@bulleconsulting.com',
-      image: '/image/ahmed.webp',
+      image: '/image/aisha.webp',
       description: `
         Aisha is an experienced HR professional offering an excellent background ranging from administrative support, recruiting coordination to accounting. Her roles as a Recruiting Manager at Amazon, HR Coordinator at Neighborcare Health, and HR Administrator at South Seattle College has helped her look at processes holistically.
 
