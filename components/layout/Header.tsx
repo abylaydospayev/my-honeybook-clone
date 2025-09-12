@@ -122,7 +122,7 @@ export function Header({ variant = 'solid', onContactClick }: HeaderProps) {
                   const isActive =
                   item.href === "/"
                   ? pathname === "/" // only highlight home if we are exactly on "/"
-                  : item.href && pathname.startsWith(item.href);
+                  : Boolean(item.href && pathname.startsWith(item.href));
                   return (
                     <NavigationMenu.Item key={item.title}>
                       {item.children ? (
